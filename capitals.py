@@ -185,6 +185,27 @@ for state in test_states:
 # Make sure the dictionary is setup correctly
 #print(test_states)
 
+# Function to execute the game and track the wins and losses (correct and wrongs)
+def begin_game():
+    # Shuffle the order of the states to make things harder
+    shuffle(test_states)
+
+    for state in test_states:
+        guess = input("Please enter the Capital of " + state["name"] + "\n")
+        # Make it case insensitive so not typing capital letters does not
+        # make you lose
+        if guess.casefold() == state["capital"].casefold():
+            print("Amazing! That was a correct answer!")
+            state["correct"] += 1
+        else:
+            print("Sorry, that was incorrect.")
+            state["wrong"] += 1
+
+        print("For {} your score is: ".format(state["name"]))
+        print("     Correct: {}".format(state["correct"]))
+        print("     Wrong: {}".format(state["wrong"]))
+
+
 print("Let's learn our State Capitals! This game will help you memorize")
 print("the names of the Capitals of all 50 States.")
-
+begin_game()
