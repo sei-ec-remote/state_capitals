@@ -1,3 +1,6 @@
+import random
+from unicodedata import name
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +153,48 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+test_states = [
+{
+    "name": "Alabama",
+    "capital": "Montgomery"
+}, {
+    "name": "Alaska",
+    "capital": "Juneau"
+}, {
+    "name": "Arizona",
+    "capital": "Phoenix"
+}]
+
+def start_quiz():
+    random.shuffle(states)
+    for state in states:
+        print("What is the capital of ", state["name"])
+        answer = input("...")
+        if answer == state["capital"]:
+            state["correct"] += 1
+            print("Correct!")
+            print("Times answered correctly: ", state["correct"], "Times answered incorrectly: ", state["wrongo"])
+        else:
+            state["wrongo"] += 1
+            print("Bzzt! Wrongo")
+            print("Times answered correctly: ", state["correct"], "Times answered incorrectly: ", state["wrongo"])
+    go_again()
+
+def go_again():
+    play_again = input("Thanks for playing! Play again? (y/n)")
+    if play_again == "y":
+        start_quiz()
+    else:
+        print("See ya!")
+
+def run_game():
+    print("Welcome to the state capital game! Guess the capital of each state when prompted.")
+    for state in states:
+        state["correct"] = 0
+        state["wrongo"] = 0
+    start_quiz()
+
+
+run_game()
