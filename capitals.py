@@ -173,21 +173,22 @@ def start_game():
     print('Name that Capital!')
     for state in test_list:
         capital = input(f"What is the capital of {state['name']}? ")
-        if capital == f"{state['capital']}".lower():
+        if capital.lower() == f"{state['capital']}".lower():
             correct_answer()
         else:
             wrong_answer()
-
 
 for state in test_list:
     state.update({'Correct':0, 'Wrong':0})
 
 def correct_answer():
     state['Correct']+=1
-    print(f"Correct!")
+    print(f"Correct! Your current score is {state['Correct']}")
+    if state['Correct'] == 3:
+        print('Would you like to play again?')
 
 def wrong_answer():
     state['Wrong']+=0
-    print(f"Wrong!")
+    print(f"Wrong! Your current score is {state['Correct']}")
 
 start_game()
