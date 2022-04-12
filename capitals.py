@@ -1,4 +1,7 @@
-states = [
+from random import shuffle
+
+
+all_states = [
 {
     "name": "Alabama",
     "capital": "Montgomery"
@@ -150,3 +153,38 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+# Test dictionary for states
+test_states = [
+{
+    "name": "Alabama",
+    "capital": "Montgomery"
+}, {
+    "name": "Alaska",
+    "capital": "Juneau"
+}, {
+    "name": "Arizona",
+    "capital": "Phoenix"
+}, {
+    "name": "Arkansas",
+    "capital": "Little Rock"
+}, {
+    "name": "California",
+    "capital": "Sacramento"
+}]
+
+
+# Setup the states dictionary for holding correct and wrong guesses for each
+#   state.  This adds correct: 0 and wrong: 0 for each state in the states 
+#   dictionary
+for state in test_states:
+    state["correct"] = 0
+    state["wrong"] = 0
+
+# Make sure the dictionary is setup correctly
+#print(test_states)
+
+print("Let's learn our State Capitals! This game will help you memorize")
+print("the names of the Capitals of all 50 States.")
+
