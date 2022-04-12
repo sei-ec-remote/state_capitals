@@ -1,3 +1,4 @@
+import random
 # states = [
 # {
 #     "name": "Alabama",
@@ -165,7 +166,10 @@ test_list = [
 }]
 
 
+
+
 def start_game():
+    random.shuffle(test_list)
     print('Name that Capital!')
     for state in test_list:
         capital = input(f"What is the capital of {state['name']}? ")
