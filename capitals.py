@@ -1,3 +1,4 @@
+from operator import truediv
 from random import shuffle
 
 
@@ -191,19 +192,26 @@ def begin_game():
     shuffle(test_states)
 
     for state in test_states:
-        guess = input("Please enter the Capital of " + state["name"] + "\n")
-        # Make it case insensitive so not typing capital letters does not
-        # make you lose
-        if guess.casefold() == state["capital"].casefold():
-            print("Amazing! That was a correct answer!")
-            state["correct"] += 1
-        else:
-            print("Sorry, that was incorrect.")
-            state["wrong"] += 1
+        keep_guessing = True
+        while keep_guessing:
+            guess = input("\nPlease enter the Capital of " + state["name"] + "\n")
+            # Make it case insensitive so not typing capital letters does not
+            # make you lose
+            if guess.casefold() == state["capital"].casefold():
+                print("Amazing! That was a correct answer!")
+                state["correct"] += 1
+                keep_guessing = False
+            else:
+                print("Sorry, that was incorrect.")
+                state["wrong"] += 1
+                yes_or_no = input("Would you like to try another guess? (yes or no) ")
+                if yes_or_no.casefold() == 'no':
+                    keep_guessing = False
+                else: continue
 
         print("For {} your score is: ".format(state["name"]))
         print("     Correct: {}".format(state["correct"]))
-        print("     Wrong: {}".format(state["wrong"]))
+        print("     Wrong: {} \n".format(state["wrong"]))
 
 
 print("Let's learn our State Capitals! This game will help you memorize")
