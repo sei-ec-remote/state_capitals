@@ -185,7 +185,12 @@ def correct_answer():
     state['Correct']+=1
     print(f"Correct! Your current score is {state['Correct']}")
     if state['Correct'] == 3:
-        print('Would you like to play again?')
+        replay = input('Would you like to play again? Y/N ')
+        if replay.lower() == 'Y'.lower():
+            state.update({'Correct':0, 'Wrong':0})
+            start_game()
+        else:
+            print("We hope to see you again!")
 
 def wrong_answer():
     state['Wrong']+=0
