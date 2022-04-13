@@ -151,8 +151,7 @@
 #     "capital": "Cheyenne"
 # }]
 
-test_states = [
-{
+test_states = [{
     "name": "Alabama",
     "capital": "Montgomery"
 }, {
@@ -161,16 +160,41 @@ test_states = [
 }, {
     "name": "Arizona",
     "capital": "Phoenix"
-}
-]
+}]
+
+# *Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+
+# -[DONE]- *Provide a welcome message to introduce the player to the game.
+
+# *Initialize new keys in the dictionaries that store the number of times a user gets a capital correct and the number of times the answer is wrong.
+
+# *Through all 50 states, prompt the user to name the capital of the state.
+
+# -[DONE]- *If the answer is correct, display a message saying so, and increment the correct key.
+
+# -[DONE]- *If the answer is wrong, display a message saying so, and increment the wrong key.
+
+# *After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
+
+# *Once the user has gone through all 50 states, ask them if they'd like to play again.
+
+# *Getting Started You're given an array of dictionaries that contain each state name and capital.
+
+# *Hint: For the purposes of developing this program, start with a test array of three dictionaries so you don't have to play through all 50 states each time.
 
 def state_game():
+    # *Provide a welcome message to introduce the player to the game.
     print("Welcome to State Capital Game!")
+    points = 0
     for state in test_states:
         capital = input(f"what is the capital of {state['name']}?\n")
         if capital == (f"{state['capital']}"):
-            print("Nice!")
+            # *If the answer is correct, display a message saying so, and increment the correct key.
+            points += 1
+            print(f"Nice!\nCurrent points: {points}" )
         else:
-            print("Wrong Answer!")
+            # *If the answer is wrong, display a message saying so, and increment the wrong key.
+            points -=0
+            print(f"Wrong Answer!\nCurrent points: {points}")
 
 state_game()
