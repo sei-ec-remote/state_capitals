@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -140,7 +142,8 @@ states = [
 }, {
     "name": "Washington",
     "capital": "Olympia"
-}, {
+}, 
+{
     "name": "West Virginia",
     "capital": "Charleston"
 }, {
@@ -150,3 +153,30 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+# each time a number is used
+# print(length)
+
+# while this number is in this number list, do something else, but if its not append to that number list
+# for loop
+
+def game():
+    correct = 0
+    incorrect = 0
+    random.shuffle(states)
+    for key in states:
+        question = input(f"What is the capital of {key['name']}?")
+        if (question == key['capital']):
+            correct += 1
+            print(f"that is correct! You have {correct} correct and {incorrect} incorrect")
+        elif (question != key['capital']): 
+            incorrect += 1            
+            print(f"that is incorrect! You have {correct} correct and {incorrect} incorrect. The correct answer was {key['capital']}")
+    
+    print (f"Game over, you got {correct} correct and {incorrect} incorrect")
+    again = (input(f"Want to play again (yes or no)?"))
+    if (again == 'yes'):
+        game()
+    else:
+        print("See ya")
+
+game()
