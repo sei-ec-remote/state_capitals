@@ -1,3 +1,4 @@
+import random
 # states = [
 # {
 #     "name": "Alabama",
@@ -178,13 +179,10 @@ test_states = [{
 
 # *Once the user has gone through all 50 states, ask them if they'd like to play again.
 
-# *Getting Started You're given an array of dictionaries that contain each state name and capital.
-
-# *Hint: For the purposes of developing this program, start with a test array of three dictionaries so you don't have to play through all 50 states each time.
-
 def state_game():
     # *Provide a welcome message to introduce the player to the game.
     print("Welcome to State Capital Game!")
+    random.shuffle(test_states)
     points = 0
     for state in test_states:
         capital = input(f"what is the capital of {state['name']}?\n")
