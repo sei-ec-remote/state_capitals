@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,43 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+print("Welcome to State Capitals Quiz Game")
+correct = 0
+incorrect = 0
+n = 0
+def is_capital(): 
+    global correct
+    global incorrect
+    global n
+    
+    random.shuffle(states)
+    if(len(states) > n ):
+        print(f"what is the capital of {(states[n]['name'])}")
+        guess = input("the capital is: ")
+        if (guess == states[n]['capital']):
+            print("Correct!")
+            n += 1
+            correct += 1
+            print(f"you have {correct} correct and {incorrect} incorrect")
+            is_capital()
+        
+        elif (guess != states[n]['capital']): 
+            print("Wrong!")
+            n +=1
+            incorrect += 1
+            print(f"you have {correct} correct and {incorrect} incorrect")
+            is_capital()
+    elif(len(states) == n):
+        answer = input("game is over, would you like to play again? ")
+        if (answer == "yes"):
+            n = 0
+            is_capital()
+        else: print("thanks for playing!")
+        
+         
+
+
+
+is_capital()
