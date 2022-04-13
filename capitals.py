@@ -199,8 +199,14 @@ def name_this_capital():
         guess = input("what is the capital of {} ".format(state['name']))
         answer = state['capital']
         check_answer(guess, answer, i)
-        correct_tally = (state.correct_tally if hasattr(states,"correct_tally") else 0)
-        wrong_tally = (state.wrong_tally if hasattr(states,"wrong_tally") else 0)
+        if 'correct_tally' in state:
+            correct_tally = state['correct_tally']
+        else:
+            correct_tally = 0
+        if 'wrong_tally' in state:
+            wrong_tally = state['wrong_tally']
+        else:
+            wrong_tally = 0
         print(f"this state was answered correctly {correct_tally} times out of {correct_tally + wrong_tally} times ")
     play_again()
 name_this_capital()
