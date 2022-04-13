@@ -12,148 +12,148 @@ states = [
     "name": "Arizona",
     "capital": "Phoenix"
     }
-# , {
-#     "name": "Arkansas",
-#     "capital": "Little Rock"
-# }, {
-#     "name": "California",
-#     "capital": "Sacramento"
-# }, {
-#     "name": "Colorado",
-#     "capital": "Denver"
-# }, {
-#     "name": "Connecticut",
-#     "capital": "Hartford"
-# }, {
-#     "name": "Delaware",
-#     "capital": "Dover"
-# }, {
-#     "name": "Florida",
-#     "capital": "Tallahassee"
-# }, {
-#     "name": "Georgia",
-#     "capital": "Atlanta"
-# }, {
-#     "name": "Hawaii",
-#     "capital": "Honolulu"
-# }, {
-#     "name": "Idaho",
-#     "capital": "Boise"
-# }, {
-#     "name": "Illinois",
-#     "capital": "Springfield"
-# }, {
-#     "name": "Indiana",
-#     "capital": "Indianapolis"
-# }, {
-#     "name": "Iowa",
-#     "capital": "Des Moines"
-# }, {
-#     "name": "Kansas",
-#     "capital": "Topeka"
-# }, {
-#     "name": "Kentucky",
-#     "capital": "Frankfort"
-# }, {
-#     "name": "Louisiana",
-#     "capital": "Baton Rouge"
-# }, {
-#     "name": "Maine",
-#     "capital": "Augusta"
-# }, {
-#     "name": "Maryland",
-#     "capital": "Annapolis"
-# }, {
-#     "name": "Massachusetts",
-#     "capital": "Boston"
-# }, {
-#     "name": "Michigan",
-#     "capital": "Lansing"
-# }, {
-#     "name": "Minnesota",
-#     "capital": "St. Paul"
-# }, {
-#     "name": "Mississippi",
-#     "capital": "Jackson"
-# }, {
-#     "name": "Missouri",
-#     "capital": "Jefferson City"
-# }, {
-#     "name": "Montana",
-#     "capital": "Helena"
-# }, {
-#     "name": "Nebraska",
-#     "capital": "Lincoln"
-# }, {
-#     "name": "Nevada",
-#     "capital": "Carson City"
-# }, {
-#     "name": "New Hampshire",
-#     "capital": "Concord"
-# }, {
-#     "name": "New Jersey",
-#     "capital": "Trenton"
-# }, {
-#     "name": "New Mexico",
-#     "capital": "Santa Fe"
-# }, {
-#     "name": "New York",
-#     "capital": "Albany"
-# }, {
-#     "name": "North Carolina",
-#     "capital": "Raleigh"
-# }, {
-#     "name": "North Dakota",
-#     "capital": "Bismarck"
-# }, {
-#     "name": "Ohio",
-#     "capital": "Columbus"
-# }, {
-#     "name": "Oklahoma",
-#     "capital": "Oklahoma City"
-# }, {
-#     "name": "Oregon",
-#     "capital": "Salem"
-# }, {
-#     "name": "Pennsylvania",
-#     "capital": "Harrisburg"
-# }, {
-#     "name": "Rhode Island",
-#     "capital": "Providence"
-# }, {
-#     "name": "South Carolina",
-#     "capital": "Columbia"
-# }, {
-#     "name": "South Dakota",
-#     "capital": "Pierre"
-# }, {
-#     "name": "Tennessee",
-#     "capital": "Nashville"
-# }, {
-#     "name": "Texas",
-#     "capital": "Austin"
-# }, {
-#     "name": "Utah",
-#     "capital": "Salt Lake City"
-# }, {
-#     "name": "Vermont",
-#     "capital": "Montpelier"
-# }, {
-#     "name": "Virginia",
-#     "capital": "Richmond"
-# }, {
-#     "name": "Washington",
-#     "capital": "Olympia"
-# }, {
-#     "name": "West Virginia",
-#     "capital": "Charleston"
-# }, {
-#     "name": "Wisconsin",
-#     "capital": "Madison"
-# }, {
-#     "name": "Wyoming",
-#     "capital": "Cheyenne"
-# }
+, {
+    "name": "Arkansas",
+    "capital": "Little Rock"
+}, {
+    "name": "California",
+    "capital": "Sacramento"
+}, {
+    "name": "Colorado",
+    "capital": "Denver"
+}, {
+    "name": "Connecticut",
+    "capital": "Hartford"
+}, {
+    "name": "Delaware",
+    "capital": "Dover"
+}, {
+    "name": "Florida",
+    "capital": "Tallahassee"
+}, {
+    "name": "Georgia",
+    "capital": "Atlanta"
+}, {
+    "name": "Hawaii",
+    "capital": "Honolulu"
+}, {
+    "name": "Idaho",
+    "capital": "Boise"
+}, {
+    "name": "Illinois",
+    "capital": "Springfield"
+}, {
+    "name": "Indiana",
+    "capital": "Indianapolis"
+}, {
+    "name": "Iowa",
+    "capital": "Des Moines"
+}, {
+    "name": "Kansas",
+    "capital": "Topeka"
+}, {
+    "name": "Kentucky",
+    "capital": "Frankfort"
+}, {
+    "name": "Louisiana",
+    "capital": "Baton Rouge"
+}, {
+    "name": "Maine",
+    "capital": "Augusta"
+}, {
+    "name": "Maryland",
+    "capital": "Annapolis"
+}, {
+    "name": "Massachusetts",
+    "capital": "Boston"
+}, {
+    "name": "Michigan",
+    "capital": "Lansing"
+}, {
+    "name": "Minnesota",
+    "capital": "St. Paul"
+}, {
+    "name": "Mississippi",
+    "capital": "Jackson"
+}, {
+    "name": "Missouri",
+    "capital": "Jefferson City"
+}, {
+    "name": "Montana",
+    "capital": "Helena"
+}, {
+    "name": "Nebraska",
+    "capital": "Lincoln"
+}, {
+    "name": "Nevada",
+    "capital": "Carson City"
+}, {
+    "name": "New Hampshire",
+    "capital": "Concord"
+}, {
+    "name": "New Jersey",
+    "capital": "Trenton"
+}, {
+    "name": "New Mexico",
+    "capital": "Santa Fe"
+}, {
+    "name": "New York",
+    "capital": "Albany"
+}, {
+    "name": "North Carolina",
+    "capital": "Raleigh"
+}, {
+    "name": "North Dakota",
+    "capital": "Bismarck"
+}, {
+    "name": "Ohio",
+    "capital": "Columbus"
+}, {
+    "name": "Oklahoma",
+    "capital": "Oklahoma City"
+}, {
+    "name": "Oregon",
+    "capital": "Salem"
+}, {
+    "name": "Pennsylvania",
+    "capital": "Harrisburg"
+}, {
+    "name": "Rhode Island",
+    "capital": "Providence"
+}, {
+    "name": "South Carolina",
+    "capital": "Columbia"
+}, {
+    "name": "South Dakota",
+    "capital": "Pierre"
+}, {
+    "name": "Tennessee",
+    "capital": "Nashville"
+}, {
+    "name": "Texas",
+    "capital": "Austin"
+}, {
+    "name": "Utah",
+    "capital": "Salt Lake City"
+}, {
+    "name": "Vermont",
+    "capital": "Montpelier"
+}, {
+    "name": "Virginia",
+    "capital": "Richmond"
+}, {
+    "name": "Washington",
+    "capital": "Olympia"
+}, {
+    "name": "West Virginia",
+    "capital": "Charleston"
+}, {
+    "name": "Wisconsin",
+    "capital": "Madison"
+}, {
+    "name": "Wyoming",
+    "capital": "Cheyenne"
+}
 ]
 
 # Your program should prompt the user to identify the capital associated with a given state.
@@ -195,7 +195,7 @@ def name_this_capital():
     random.shuffle(states)
     for i in range(len(states)):
         state = states[i]
-        print("STATE", state) #for testing, because I don't know capitals
+        # print("STATE", state) #for testing, because I don't know capitals
         guess = input("what is the capital of {} ".format(state['name']))
         answer = state['capital']
         check_answer(guess, answer, i)
@@ -207,15 +207,14 @@ def name_this_capital():
             wrong_tally = state['wrong_tally']
         else:
             wrong_tally = 0
+        # *After each prompt, display a message telling the reader how many times the state was answered
+        #  correctly out of the total number of times answered.
         print(f"this state was answered correctly {correct_tally} times out of {correct_tally + wrong_tally} times ")
     play_again()
 name_this_capital()
 
 ##########################################     REQUIREMENTS    ############################################
 
-
-# *After each prompt, display a message telling the reader how many times the state was answered
-#  correctly out of the total number of times answered.
 
 # *Getting Started You're given an array of dictionaries that contain each state name and capital.
 
