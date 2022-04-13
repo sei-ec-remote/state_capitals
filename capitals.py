@@ -187,11 +187,16 @@ def start(correct, wrong):
         print(
             f'You have answered {correct} correct and {wrong} incorrect')
 
-        if total < 50:
+        if total < 1:
             start(correct, wrong)
-        elif total >= 50:
+        elif total >= 1:
             print(
                 f"Game over! You totalled {correct} correct and {wrong} incorrect")
+            play_again = input("Would you like to play again?")
+            if play_again == "yes":
+                start(0, 0)
+            else:
+                None
 
 
 start(0, 0)
