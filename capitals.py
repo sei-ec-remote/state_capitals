@@ -153,16 +153,45 @@ states = [
         "capital": "Cheyenne"
     }]
 
+
 print("Do you know the states and their capitals? We'll see...")
-correct = 0
-wrong = 0
-# states_list = list(states.items())
-random_state = random.choice(list(states))
-state = random_state["name"]
-capital = random_state["capital"]
 
-option = input(
-    f"What is the capital of {state}?")
 
-print("state", state)
-print("capital", capital)
+def start(correct, wrong):
+
+    correct = correct
+    wrong = wrong
+    total = correct + wrong
+
+# tally = f'you have answered {correct} correct and {wrong} incorrect'
+    random_state = random.choice(list(states))
+    state = random_state["name"]
+    capital = random_state["capital"]
+
+    option = input(
+        f"What is the capital of {state}?")
+
+    if option == f"{capital}":
+        correct += 1
+        print("Correct!")
+        print(
+            f'you have answered {correct} correct and {wrong} incorrect')
+        if total < 50:
+            start(correct, wrong)
+        elif total >= 50:
+            print(
+                f"Game over! You totalled {correct} correct and {wrong} incorrect")
+    else:
+        wrong += 1
+        print(f"Incorrect! The capital is {capital}")
+        print(
+            f'You have answered {correct} correct and {wrong} incorrect')
+
+        if total < 50:
+            start(correct, wrong)
+        elif total >= 50:
+            print(
+                f"Game over! You totalled {correct} correct and {wrong} incorrect")
+
+
+start(0, 0)
