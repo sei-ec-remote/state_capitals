@@ -164,6 +164,7 @@ def game():
     incorrect = 0
     random.shuffle(states)
     for key in states:
+        print("Welcome to the states game!")
         question = input(f"What is the capital of {key['name']}?")
         if (question == key['capital']):
             correct += 1
