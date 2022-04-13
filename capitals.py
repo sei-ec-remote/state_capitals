@@ -1,3 +1,7 @@
+from random import random
+from re import I
+
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +154,15 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+# input("Do you know the state's capitals?")
+
+# question = input(f"What's the capital of {states}?")
+# print(states)
+
+
+
+def capital_game ():
+    for states in states:
+        print(random.shuffle(states))
+       
