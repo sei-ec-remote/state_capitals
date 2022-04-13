@@ -162,41 +162,41 @@ states = [
 
 print("Welcome to THE US STATE CAPITAL GAME! \nfollow the prompts and guess the capitals")
 
-# *Make sure the states don't appear in alphabetical order in the prompts. 
-# This will make the game a bit more challenging for the user.
-def shuffle_states():
-    random.shuffle(states)
 
 # *Initialize new keys in the dictionaries that store the number of times a user gets a capital correct 
 # and the number of times the answer is wrong.
 def create_tally(correct: bool, index: int):
-    if(correct):
+    if(correct): #  If the answer is correct increment the correct key.
         if "correct_tally" in states[index]: states[index]["correct_tally"] += 1
         else: states[index]["correct_tally"] = 1
-    else:
+    else: # If the answer is wrong increment the wrong key.
         if "wrong_tally" in states[index]: states[index]["wrong_tally"] += 1
         else: states[index]["wrong_tally"] = 1
 
+def check_answer( guess: str, answer: str, index: int):
+    if(guess == answer):
+        print("That is correct!") # If the answer is correct, display a message saying so
+        create_tally(True, index)
+    else:
+        print("I am sorry, the correct answer is {}".format(answer)) # If the answer is wrong, display a message saying so
+        create_tally(False, index)
+
+# *Through all 50 states, prompt the user to name the capital of the state.
+def name_this_capital():
+    random.shuffle(states)
+    for i in range(len(states)):
+        state = states[i]
+        print("STATE", state)
+        guess = input("what is the capital of {} ".format(state['name']))
+        answer = state['capital']
+        check_answer(guess, answer, i)
         
+        # print(f"this state was answered correctly {state.correct_tally} times out of {state.correct_tally + state.wrong_tally} times ")
 
-
-
-
-
-
+name_this_capital()
 
 ##########################################     REQUIREMENTS    ############################################
 
-
-
-# *Initialize new keys in the dictionaries that store the number of times a user gets a capital correct 
-# and the number of times the answer is wrong.
-
-# *Through all 50 states, prompt the user to name the capital of the state.
-
-# *If the answer is correct, display a message saying so, and increment the correct key.
-
-# *If the answer is wrong, display a message saying so, and increment the wrong key.
 
 # *After each prompt, display a message telling the reader how many times the state was answered
 #  correctly out of the total number of times answered.
