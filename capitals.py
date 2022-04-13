@@ -1,199 +1,210 @@
 import random
-# states = [
-# {
-#     "name": "Alabama",
-#     "capital": "Montgomery"
-# }, {
-#     "name": "Alaska",
-#     "capital": "Juneau"
-# }, {
-#     "name": "Arizona",
-#     "capital": "Phoenix"
-# }, {
-#     "name": "Arkansas",
-#     "capital": "Little Rock"
-# }, {
-#     "name": "California",
-#     "capital": "Sacramento"
-# }, {
-#     "name": "Colorado",
-#     "capital": "Denver"
-# }, {
-#     "name": "Connecticut",
-#     "capital": "Hartford"
-# }, {
-#     "name": "Delaware",
-#     "capital": "Dover"
-# }, {
-#     "name": "Florida",
-#     "capital": "Tallahassee"
-# }, {
-#     "name": "Georgia",
-#     "capital": "Atlanta"
-# }, {
-#     "name": "Hawaii",
-#     "capital": "Honolulu"
-# }, {
-#     "name": "Idaho",
-#     "capital": "Boise"
-# }, {
-#     "name": "Illinois",
-#     "capital": "Springfield"
-# }, {
-#     "name": "Indiana",
-#     "capital": "Indianapolis"
-# }, {
-#     "name": "Iowa",
-#     "capital": "Des Moines"
-# }, {
-#     "name": "Kansas",
-#     "capital": "Topeka"
-# }, {
-#     "name": "Kentucky",
-#     "capital": "Frankfort"
-# }, {
-#     "name": "Louisiana",
-#     "capital": "Baton Rouge"
-# }, {
-#     "name": "Maine",
-#     "capital": "Augusta"
-# }, {
-#     "name": "Maryland",
-#     "capital": "Annapolis"
-# }, {
-#     "name": "Massachusetts",
-#     "capital": "Boston"
-# }, {
-#     "name": "Michigan",
-#     "capital": "Lansing"
-# }, {
-#     "name": "Minnesota",
-#     "capital": "St. Paul"
-# }, {
-#     "name": "Mississippi",
-#     "capital": "Jackson"
-# }, {
-#     "name": "Missouri",
-#     "capital": "Jefferson City"
-# }, {
-#     "name": "Montana",
-#     "capital": "Helena"
-# }, {
-#     "name": "Nebraska",
-#     "capital": "Lincoln"
-# }, {
-#     "name": "Nevada",
-#     "capital": "Carson City"
-# }, {
-#     "name": "New Hampshire",
-#     "capital": "Concord"
-# }, {
-#     "name": "New Jersey",
-#     "capital": "Trenton"
-# }, {
-#     "name": "New Mexico",
-#     "capital": "Santa Fe"
-# }, {
-#     "name": "New York",
-#     "capital": "Albany"
-# }, {
-#     "name": "North Carolina",
-#     "capital": "Raleigh"
-# }, {
-#     "name": "North Dakota",
-#     "capital": "Bismarck"
-# }, {
-#     "name": "Ohio",
-#     "capital": "Columbus"
-# }, {
-#     "name": "Oklahoma",
-#     "capital": "Oklahoma City"
-# }, {
-#     "name": "Oregon",
-#     "capital": "Salem"
-# }, {
-#     "name": "Pennsylvania",
-#     "capital": "Harrisburg"
-# }, {
-#     "name": "Rhode Island",
-#     "capital": "Providence"
-# }, {
-#     "name": "South Carolina",
-#     "capital": "Columbia"
-# }, {
-#     "name": "South Dakota",
-#     "capital": "Pierre"
-# }, {
-#     "name": "Tennessee",
-#     "capital": "Nashville"
-# }, {
-#     "name": "Texas",
-#     "capital": "Austin"
-# }, {
-#     "name": "Utah",
-#     "capital": "Salt Lake City"
-# }, {
-#     "name": "Vermont",
-#     "capital": "Montpelier"
-# }, {
-#     "name": "Virginia",
-#     "capital": "Richmond"
-# }, {
-#     "name": "Washington",
-#     "capital": "Olympia"
-# }, {
-#     "name": "West Virginia",
-#     "capital": "Charleston"
-# }, {
-#     "name": "Wisconsin",
-#     "capital": "Madison"
-# }, {
-#     "name": "Wyoming",
-#     "capital": "Cheyenne"
-# }]
-
-
-
-test_list = [
+states = [
 {
     "name": "Alabama",
     "capital": "Montgomery"
 }, {
     "name": "Alaska",
     "capital": "Juneau"
-}, {"name": "Wyoming",
+}, {
+    "name": "Arizona",
+    "capital": "Phoenix"
+}, {
+    "name": "Arkansas",
+    "capital": "Little Rock"
+}, {
+    "name": "California",
+    "capital": "Sacramento"
+}, {
+    "name": "Colorado",
+    "capital": "Denver"
+}, {
+    "name": "Connecticut",
+    "capital": "Hartford"
+}, {
+    "name": "Delaware",
+    "capital": "Dover"
+}, {
+    "name": "Florida",
+    "capital": "Tallahassee"
+}, {
+    "name": "Georgia",
+    "capital": "Atlanta"
+}, {
+    "name": "Hawaii",
+    "capital": "Honolulu"
+}, {
+    "name": "Idaho",
+    "capital": "Boise"
+}, {
+    "name": "Illinois",
+    "capital": "Springfield"
+}, {
+    "name": "Indiana",
+    "capital": "Indianapolis"
+}, {
+    "name": "Iowa",
+    "capital": "Des Moines"
+}, {
+    "name": "Kansas",
+    "capital": "Topeka"
+}, {
+    "name": "Kentucky",
+    "capital": "Frankfort"
+}, {
+    "name": "Louisiana",
+    "capital": "Baton Rouge"
+}, {
+    "name": "Maine",
+    "capital": "Augusta"
+}, {
+    "name": "Maryland",
+    "capital": "Annapolis"
+}, {
+    "name": "Massachusetts",
+    "capital": "Boston"
+}, {
+    "name": "Michigan",
+    "capital": "Lansing"
+}, {
+    "name": "Minnesota",
+    "capital": "St. Paul"
+}, {
+    "name": "Mississippi",
+    "capital": "Jackson"
+}, {
+    "name": "Missouri",
+    "capital": "Jefferson City"
+}, {
+    "name": "Montana",
+    "capital": "Helena"
+}, {
+    "name": "Nebraska",
+    "capital": "Lincoln"
+}, {
+    "name": "Nevada",
+    "capital": "Carson City"
+}, {
+    "name": "New Hampshire",
+    "capital": "Concord"
+}, {
+    "name": "New Jersey",
+    "capital": "Trenton"
+}, {
+    "name": "New Mexico",
+    "capital": "Santa Fe"
+}, {
+    "name": "New York",
+    "capital": "Albany"
+}, {
+    "name": "North Carolina",
+    "capital": "Raleigh"
+}, {
+    "name": "North Dakota",
+    "capital": "Bismarck"
+}, {
+    "name": "Ohio",
+    "capital": "Columbus"
+}, {
+    "name": "Oklahoma",
+    "capital": "Oklahoma City"
+}, {
+    "name": "Oregon",
+    "capital": "Salem"
+}, {
+    "name": "Pennsylvania",
+    "capital": "Harrisburg"
+}, {
+    "name": "Rhode Island",
+    "capital": "Providence"
+}, {
+    "name": "South Carolina",
+    "capital": "Columbia"
+}, {
+    "name": "South Dakota",
+    "capital": "Pierre"
+}, {
+    "name": "Tennessee",
+    "capital": "Nashville"
+}, {
+    "name": "Texas",
+    "capital": "Austin"
+}, {
+    "name": "Utah",
+    "capital": "Salt Lake City"
+}, {
+    "name": "Vermont",
+    "capital": "Montpelier"
+}, {
+    "name": "Virginia",
+    "capital": "Richmond"
+}, {
+    "name": "Washington",
+    "capital": "Olympia"
+}, {
+    "name": "West Virginia",
+    "capital": "Charleston"
+}, {
+    "name": "Wisconsin",
+    "capital": "Madison"
+}, {
+    "name": "Wyoming",
     "capital": "Cheyenne"
 }]
 
 
 
+# test_list = [
+# {
+#     "name": "Alabama",
+#     "capital": "Montgomery"
+# }, {
+#     "name": "Alaska",
+#     "capital": "Juneau"
+# }, {"name": "Wyoming",
+#     "capital": "Cheyenne"
+# }]
+
+
+print('Do you know your capitals?!')
+
 
 def start_game():
-    random.shuffle(test_list)
-    print('Name that Capital!')
-    for state in test_list:
+    random.shuffle(states)
+    for state in states:
         capital = input(f"What is the capital of {state['name']}? ")
         if capital.lower() == f"{state['capital']}".lower():
             correct_answer()
         else:
             wrong_answer()
 
-for state in test_list:
+for state in states:
     state.update({'Correct':0, 'Wrong':0})
 
 def correct_answer():
     state['Correct']+=1
-    print(f"Correct! Your current score is {state['Correct']}")
-    if state['Correct'] == 3:
-        replay = input('Would you like to play again? Y/N ')
+    print(f"Correct! Your current score is {state['Correct']} correct and {state['Wrong']} wrong")
+    if state['Correct'] == 50:
+        replay = input(f"Final score of {state['Correct']} correct and {state['Wrong']} wrong. Would you like to play again? Y/N ")
         if replay.lower() == 'Y'.lower():
             state.update({'Correct':0, 'Wrong':0})
             start_game()
-        else:
+        elif replay.lower() == 'N'.lower():
             print("We hope to see you again!")
+        else:
+            print('Invalid entry')
 
 def wrong_answer():
-    state['Wrong']+=0
-    print(f"Wrong! Your current score is {state['Correct']}")
+    state['Wrong']+=1
+    print(f"Wrong! Your current score is {state['Correct']} correct and {state['Wrong']} wrong")
+    if state['Wrong'] + state['Correct'] == 50:
+        replay = input(f"Final score of {state['Correct']} correct and {state['Wrong']} wrong. Would you like to play again? Y/N ")
+        if replay.lower() == 'Y'.lower():
+            state.update({'Correct':0, 'Wrong':0})
+            start_game()
+        elif replay.lower() == 'N'.lower():
+            print("We hope to see you again!")
+        else:
+            print('Invalid entry')
 
 start_game()
