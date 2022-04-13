@@ -187,41 +187,50 @@ for state in all_states:
 
 # Function to execute the game and track the wins and losses (correct and wrongs)
 def begin_game():
-    # Shuffle the order of the states to make things harder
-    shuffle(all_states)
-    total_correct = 0
 
-    for state in all_states:
-        keep_guessing = True
-        while keep_guessing:
-            guess = input("\nPlease enter the Capital of " + state["name"] + "\n")
-            # Make it case insensitive so not typing capital letters does not
-            # make you lose
-            if guess.casefold() == state["capital"].casefold():
-                print("Amazing! That was a correct answer!")
-                state["correct"] += 1
-                total_correct += 1
-                keep_guessing = False
-            else:
-                print("Sorry, that was incorrect.")
-                state["wrong"] += 1
-                yes_or_no = input("Would you like to try another guess? (yes or no) ")
-                if yes_or_no.casefold() == 'no':
-                    yes_or_no_hint = input("Would you like a hint to help? (yes or no) ")
-                    if yes_or_no_hint == 'no':
-                        keep_guessing = False
-                    else:
-                        capital = state["capital"]
-                        name = state["name"]
-                        print(f"Here is your Hint for {name}: {capital[0]}{capital[1]}{capital[2]}\n")
-                        continue
-                else: continue
+    keep_playing = True
 
-        print("For {} your score is: ".format(state["name"]))
-        print("     Correct: {}".format(state["correct"]))
-        print("     Wrong: {} \n".format(state["wrong"]))
+    while keep_playing:
+        # Shuffle the order of the states to make things harder
+        shuffle(all_states)
+        total_correct = 0
 
-    print("\nTotal Score:  Out of 50 states you answered: {} correctly.".format(total_correct))
+        for state in all_states:
+            keep_guessing = True
+            while keep_guessing:
+                guess = input("\nPlease enter the Capital of " + state["name"] + "\n")
+                # Make it case insensitive so not typing capital letters does not
+                # make you lose
+                if guess.casefold() == state["capital"].casefold():
+                    print("Amazing! That was a correct answer!")
+                    state["correct"] += 1
+                    total_correct += 1
+                    keep_guessing = False
+                else:
+                    print("Sorry, that was incorrect.")
+                    state["wrong"] += 1
+                    yes_or_no = input("Would you like to try another guess? (yes or no) ")
+                    if yes_or_no.casefold() == 'no':
+                        yes_or_no_hint = input("Would you like a hint to help? (yes or no) ")
+                        if yes_or_no_hint == 'no':
+                            keep_guessing = False
+                        else:
+                            capital = state["capital"]
+                            name = state["name"]
+                            print(f"Here is your Hint for {name}: {capital[0]}{capital[1]}{capital[2]}\n")
+                            continue
+                    else: continue
+
+            print("For {} your score is: ".format(state["name"]))
+            print("     Correct: {}".format(state["correct"]))
+            print("     Wrong: {} \n".format(state["wrong"]))
+
+        print("\nTotal Score:  Out of 50 states you answered: {} correctly.".format(total_correct))
+        yes_or_no = input("\nWould you like to play again? (yes or no) ")
+        if yes_or_no == 'yes':
+            keep_playing = True
+        else:
+            keep_playing = False
 
 
 print("Let's learn our State Capitals! This game will help you memorize")
