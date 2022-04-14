@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,28 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+print("Do You Know Your Capitals?")
+def game():
+    correct = 0
+    incorrect = 0
+    iteration = 0
+    for state in states:
+        question = input(f"what is the capital of {state['name']}: ")
+        if question == state['capital']:
+            correct += 1
+            iteration += 1
+            print(f"Correct, you have {correct} correct points and {incorrect} correct points ")
+        else:
+            incorrect += 1
+            iteration += 1
+            print(f"Incorrect, you have {correct} correct points and {incorrect} incorrect points ")
+    if iteration == 50:
+        restart = input("Would you like to play again?: ")
+        if restart == 'Yes':
+           game()
+        else:
+            print(f"Game Over! You scored {correct} correct points and {incorrect} incorrect points")
+
+game()
