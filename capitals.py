@@ -1,152 +1,205 @@
+import random
 states = [
 {
-    "name": "Alabama",
+    "state": "Alabama",
     "capital": "Montgomery"
 }, {
-    "name": "Alaska",
+    "state": "Alaska",
     "capital": "Juneau"
 }, {
-    "name": "Arizona",
+    "state": "Arizona",
     "capital": "Phoenix"
 }, {
-    "name": "Arkansas",
+    "state": "Arkansas",
     "capital": "Little Rock"
 }, {
-    "name": "California",
+    "state": "California",
     "capital": "Sacramento"
 }, {
-    "name": "Colorado",
+    "state": "Colorado",
     "capital": "Denver"
 }, {
-    "name": "Connecticut",
+    "state": "Connecticut",
     "capital": "Hartford"
 }, {
-    "name": "Delaware",
+    "state": "Delaware",
     "capital": "Dover"
 }, {
-    "name": "Florida",
+    "state": "Florida",
     "capital": "Tallahassee"
 }, {
-    "name": "Georgia",
+    "state": "Georgia",
     "capital": "Atlanta"
 }, {
-    "name": "Hawaii",
+    "state": "Hawaii",
     "capital": "Honolulu"
 }, {
-    "name": "Idaho",
+    "state": "Idaho",
     "capital": "Boise"
 }, {
-    "name": "Illinois",
+    "state": "Illinois",
     "capital": "Springfield"
 }, {
-    "name": "Indiana",
+    "state": "Indiana",
     "capital": "Indianapolis"
 }, {
-    "name": "Iowa",
+    "state": "Iowa",
     "capital": "Des Moines"
 }, {
-    "name": "Kansas",
+    "state": "Kansas",
     "capital": "Topeka"
 }, {
-    "name": "Kentucky",
+    "state": "Kentucky",
     "capital": "Frankfort"
 }, {
-    "name": "Louisiana",
+    "state": "Louisiana",
     "capital": "Baton Rouge"
 }, {
-    "name": "Maine",
+    "state": "Maine",
     "capital": "Augusta"
 }, {
-    "name": "Maryland",
+    "state": "Maryland",
     "capital": "Annapolis"
 }, {
-    "name": "Massachusetts",
+    "state": "Massachusetts",
     "capital": "Boston"
 }, {
-    "name": "Michigan",
+    "state": "Michigan",
     "capital": "Lansing"
 }, {
-    "name": "Minnesota",
+    "state": "Minnesota",
     "capital": "St. Paul"
 }, {
-    "name": "Mississippi",
+    "state": "Mississippi",
     "capital": "Jackson"
 }, {
-    "name": "Missouri",
+    "state": "Missouri",
     "capital": "Jefferson City"
 }, {
-    "name": "Montana",
+    "state": "Montana",
     "capital": "Helena"
 }, {
-    "name": "Nebraska",
+    "state": "Nebraska",
     "capital": "Lincoln"
 }, {
-    "name": "Nevada",
+    "state": "Nevada",
     "capital": "Carson City"
 }, {
-    "name": "New Hampshire",
+    "state": "New Hampshire",
     "capital": "Concord"
 }, {
-    "name": "New Jersey",
+    "state": "New Jersey",
     "capital": "Trenton"
 }, {
-    "name": "New Mexico",
+    "state": "New Mexico",
     "capital": "Santa Fe"
 }, {
-    "name": "New York",
+    "state": "New York",
     "capital": "Albany"
 }, {
-    "name": "North Carolina",
+    "state": "North Carolina",
     "capital": "Raleigh"
 }, {
-    "name": "North Dakota",
+    "state": "North Dakota",
     "capital": "Bismarck"
 }, {
-    "name": "Ohio",
+    "state": "Ohio",
     "capital": "Columbus"
 }, {
-    "name": "Oklahoma",
+    "state": "Oklahoma",
     "capital": "Oklahoma City"
 }, {
-    "name": "Oregon",
+    "state": "Oregon",
     "capital": "Salem"
 }, {
-    "name": "Pennsylvania",
+    "state": "Pennsylvania",
     "capital": "Harrisburg"
 }, {
-    "name": "Rhode Island",
+    "state": "Rhode Island",
     "capital": "Providence"
 }, {
-    "name": "South Carolina",
+    "state": "South Carolina",
     "capital": "Columbia"
 }, {
-    "name": "South Dakota",
+    "state": "South Dakota",
     "capital": "Pierre"
 }, {
-    "name": "Tennessee",
+    "state": "Tennessee",
     "capital": "Nashville"
 }, {
-    "name": "Texas",
+    "state": "Texas",
     "capital": "Austin"
 }, {
-    "name": "Utah",
+    "state": "Utah",
     "capital": "Salt Lake City"
 }, {
-    "name": "Vermont",
+    "state": "Vermont",
     "capital": "Montpelier"
 }, {
-    "name": "Virginia",
+    "state": "Virginia",
     "capital": "Richmond"
 }, {
-    "name": "Washington",
+    "state": "Washington",
     "capital": "Olympia"
 }, {
-    "name": "West Virginia",
+    "state": "West Virginia",
     "capital": "Charleston"
 }, {
-    "name": "Wisconsin",
+    "state": "Wisconsin",
     "capital": "Madison"
 }, {
-    "name": "Wyoming",
+    "state": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+# make a states dictionary of about 5 states
+# states = [
+#     {
+#         'state': 'Arizona',
+#         'capital': 'Phoenix'
+#     }, {
+#         'state': 'Indiana',
+#         'capital': 'Indianaopis'
+#     }, {
+#         'state': 'Texas',
+#         'capital': 'Austin'
+#     }, {
+#         'state': 'Georgia',
+#         'capital': 'Atlanta'
+#     }, {
+#         'state': 'Oregon',
+#         'capital': 'Salem'
+#     }]
+
+
+
+def states_game():
+    # print a welcome message when game loads
+    print ('Welcome to the Capitals game, let"s have some fun and play')
+    # import the random method to shuffle trhought the states at random
+    random.shuffle(states)
+    # set varibales for right and wrong answers
+    correct = 0
+    wrong = 0 
+    # create a for loop that loops through the states for a state
+    for state in states:
+        capital = input(f"What is the capital of {state['state']}? \n")
+        # if the capital input is the same as the capital in the dict then award one correct point
+        if capital == (f"{state['capital']}"):
+            correct += 1
+            print(f'Good work! Correct: {correct} Wrong: {wrong}')
+        else: 
+            # else, the answer is wrong dock the user one wrong point
+            wrong += 1
+            print(f'Oops, that was wrong! Correct: {correct} Wrong: {wrong}')   
+     # after the game is over give input asking if user wants to play again
+    replay_game = input(f'Game over! Correct: {correct} Wrong: {wrong}. \n Would you like to play again (y/n)')
+    # if user prints y then recall the states_game function, if the user input is n give a goodbye message and if  the user inputs any other string then give better instruction for the next time they play and end the game automatically
+    if replay_game == 'y':
+        states_game()
+    elif replay_game == 'n':
+        print('Thanks for playing! See ya.')
+    else:  
+        print('Sorry you need to input a y or n. Bye.')
+        
+states_game()
