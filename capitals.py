@@ -150,3 +150,64 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+test_states = [
+{
+    "name": "Louisiana",
+    "capital": "Baton Rouge"
+},{
+    "name": "Montana",
+    "capital": "Helena"
+}, {
+    "name": "Oregon",
+    "capital": "Salem"
+}]
+
+
+
+import random
+
+def state_quiz():
+    question_count = 0
+    right_count = 0
+    wrong_count = 0
+    random.shuffle(states)
+
+    for state in states:
+        question_count += 1
+        print("********************")
+        print(f"Question {question_count} of {len(states)}")
+        print("********************")
+        print(f"What is the capital of {state['name']}?")
+        response = input("Answer: ")
+
+        if response.lower() == state["capital"].lower():
+            state["right"] += 1
+            right_count += 1
+            print(f"{state['capital']}, {state['name']}, that's right!")
+            print(f"You've gotten {state['name']}'s capital right {state['right']} times and wrong {state['wrong']} times.\n")
+        else:
+            state["wrong"] += 1
+            wrong_count += 1
+            print(f"Sorry, {response} is incorrect.")
+            print(f"You've gotten {state['name']}'s capital right {state['right']} times and wrong {state['wrong']} times.\n")
+
+    print(f"You got {right_count} right and {wrong_count} wrong.\n")
+    replay()
+
+def replay():
+    play_again = input("Would you like to play again? (y/n) ")
+    if play_again.lower() == "y":
+        print("Awesome! Good luck!\n")
+        state_quiz()
+    else:
+        print("Thanks for playing!")
+
+def intro_quiz():
+    input("Welcome to this game thing! Here's some shit to know. Press enter to continue...")
+    for state in states:
+        state["right"] = 0
+        state["wrong"] = 0
+    state_quiz()
+
+intro_quiz()
