@@ -159,44 +159,38 @@ print("Do you know the states and their capitals? We'll see...")
 
 def start(correct, wrong):
 
-    correct = correct
-    wrong = wrong
-    total = correct + wrong
+    correct = 0
+    wrong = 0
+    question_count = 0
+    random.shuffle(states)
 
-# tally = f'you have answered {correct} correct and {wrong} incorrect'
-    random_state = random.choice(list(states))
-    state = random_state["name"]
-    capital = random_state["capital"]
+    for state in states:
+        question_count += 1
+        option = input(
+            f"What is the capital of {state['name']}?")
 
-    option = input(
-        f"What is the capital of {state}?")
-
-    if option == f"{capital}":
-        correct += 1
-        print("Correct!")
-        print(
-            f'you have answered {correct} correct and {wrong} incorrect')
-        if total < 50:
-            start(correct, wrong)
-        elif total >= 50:
+        if option.lower() == state['capital'].lower():
+            correct += 1
+            print("Correct!")
             print(
-                f"Game over! You totalled {correct} correct and {wrong} incorrect")
+                f'you have answered {correct} correct and {wrong} incorrect')
+
+        else:
+            wrong += 1
+            print(f"Incorrect! The capital is {state['capital']}")
+            print(
+                f'You have answered {correct} correct and {wrong} incorrect')
+    print(
+        f"Game over! You totalled {correct} correct and {wrong} incorrect")
+    game_end()
+
+
+def game_end():
+    play_again = input("Would you like to play again?")
+    if play_again == "yes":
+        start(0, 0)
     else:
-        wrong += 1
-        print(f"Incorrect! The capital is {capital}")
-        print(
-            f'You have answered {correct} correct and {wrong} incorrect')
-
-        if total < 1:
-            start(correct, wrong)
-        elif total >= 1:
-            print(
-                f"Game over! You totalled {correct} correct and {wrong} incorrect")
-            play_again = input("Would you like to play again?")
-            if play_again == "yes":
-                start(0, 0)
-            else:
-                None
+        None
 
 
 start(0, 0)
