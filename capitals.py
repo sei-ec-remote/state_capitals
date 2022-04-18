@@ -1,3 +1,4 @@
+import random
 states = [
 {
     "name": "Alabama",
@@ -150,3 +151,29 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+def state_game ():
+    #import random method so I can shuffle through states
+     random.shuffle(states)
+     #set variables 
+     points = 0
+     #have the player choose yes if know state
+     #use prompt built in 
+     prompt = input("Do you know the United States capitals?")
+     if prompt == "yes" or prompt == " y":
+         for state in states:
+             question = input("What's the capital of {}?: ".format(state["name"]))
+             if question == state["capital"]:
+                 points += 1
+                 print(f"Your current score is: {points}")
+             else:
+                 points -= 1
+                 print(f"Wrong answer. Current score: {points}")
+         total = points
+         if total >= 20 :
+             print(f"You've won. Final Score: {total}")
+         else:
+             print(f"You lost. Try Again. Final Score: {total}")
+     else:
+         print("Thanks for trying")
+state_game()
