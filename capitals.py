@@ -4,261 +4,166 @@ import random
 states = [
 # {
 #     "name": "Alabama",
-#     "capital": "Montgomery",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Montgomery"
 # }, {
 #     "name": "Alaska",
-#     "capital": "Juneau",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Juneau"
 # }, {
 #     "name": "Arizona",
-#     "capital": "Phoenix",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Phoenix"
 # }, {
 #     "name": "Arkansas",
-#     "capital": "Little Rock",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Little Rock"
 # }, {
 #     "name": "California",
-#     "capital": "Sacramento",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Sacramento"
 # }, {
 #     "name": "Colorado",
-#     "capital": "Denver",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Denver"
 # }, {
 #     "name": "Connecticut",
-#     "capital": "Hartford",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Hartford"
 # }, {
 #     "name": "Delaware",
-#     "capital": "Dover",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Dover"
 # }, {
 #     "name": "Florida",
-#     "capital": "Tallahassee",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Tallahassee"
 # }, {
 #     "name": "Georgia",
-#     "capital": "Atlanta",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Atlanta"
 # }, {
 #     "name": "Hawaii",
-#     "capital": "Honolulu",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Honolulu"
 # }, {
 #     "name": "Idaho",
-#     "capital": "Boise",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Boise"
 # }, {
 #     "name": "Illinois",
-#     "capital": "Springfield",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Springfield"
 # }, {
 #     "name": "Indiana",
-#     "capital": "Indianapolis",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Indianapolis"
 # }, {
 #     "name": "Iowa",
-#     "capital": "Des Moines",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Des Moines"
 # }, {
 #     "name": "Kansas",
-#     "capital": "Topeka",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Topeka"
 # }, {
 #     "name": "Kentucky",
-#     "capital": "Frankfort",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Frankfort"
 # }, {
 #     "name": "Louisiana",
-#     "capital": "Baton Rouge",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Baton Rouge"
 # }, {
 #     "name": "Maine",
-#     "capital": "Augusta",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Augusta"
 # }, {
 #     "name": "Maryland",
-#     "capital": "Annapolis",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Annapolis"
 # }, {
 #     "name": "Massachusetts",
-#     "capital": "Boston",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Boston"
 # }, {
 #     "name": "Michigan",
-#     "capital": "Lansing",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Lansing"
 # }, {
 #     "name": "Minnesota",
-#     "capital": "St. Paul",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "St. Paul"
 # }, {
 #     "name": "Mississippi",
-#     "capital": "Jackson",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Jackson"
 # }, {
 #     "name": "Missouri",
-#     "capital": "Jefferson City",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Jefferson City"
 # }, {
 #     "name": "Montana",
-#     "capital": "Helena",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Helena"
 # }, {
 #     "name": "Nebraska",
-#     "capital": "Lincoln",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Lincoln"
 # }, {
 #     "name": "Nevada",
-#     "capital": "Carson City",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Carson City"
 # }, {
 #     "name": "New Hampshire",
-#     "capital": "Concord",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Concord"
 # }, {
 #     "name": "New Jersey",
-#     "capital": "Trenton",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Trenton"
 # }, {
 #     "name": "New Mexico",
-#     "capital": "Santa Fe",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Santa Fe"
 # }, {
 #     "name": "New York",
-#     "capital": "Albany",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Albany"
 # }, {
 #     "name": "North Carolina",
-#     "capital": "Raleigh",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Raleigh"
 # }, {
 #     "name": "North Dakota",
-#     "capital": "Bismarck",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Bismarck"
 # }, {
 #     "name": "Ohio",
-#     "capital": "Columbus",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Columbus"
 # }, {
 #     "name": "Oklahoma",
-#     "capital": "Oklahoma City",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Oklahoma City"
 # }, {
 #     "name": "Oregon",
-#     "capital": "Salem",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Salem"
 # }, {
 #     "name": "Pennsylvania",
-#     "capital": "Harrisburg",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Harrisburg"
 # }, {
 #     "name": "Rhode Island",
-#     "capital": "Providence",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Providence"
 # }, {
 #     "name": "South Carolina",
-#     "capital": "Columbia",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Columbia"
 # }, {
 #     "name": "South Dakota",
-#     "capital": "Pierre",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Pierre"
 # }, {
 #     "name": "Tennessee",
-#     "capital": "Nashville",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Nashville"
 # }, {
 #     "name": "Texas",
-#     "capital": "Austin",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Austin"
 # }, {
 #     "name": "Utah",
-#     "capital": "Salt Lake City",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Salt Lake City"
 # }, {
 #     "name": "Vermont",
-#     "capital": "Montpelier",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Montpelier"
 # }, {
 #     "name": "Virginia",
-#     "capital": "Richmond",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Richmond"
 # }, {
 #     "name": "Washington",
-#     "capital": "Olympia",
-#     "answered_correctly": 0,
-#     "answered_incorrectly": 0
+#     "capital": "Olympia"
 # }, 
 {
     "name": "West Virginia",
-    "capital": "Charleston",
-    "answered_correctly": 0,
-    "answered_incorrectly": 0
+    "capital": "Charleston"
 }, {
     "name": "Wisconsin",
-    "capital": "Madison",
-    "answered_correctly": 0,
-    "answered_incorrectly": 0
+    "capital": "Madison"
 }, {
     "name": "Wyoming",
-    "capital": "Cheyenne",
-    "answered_correctly": 0,
-    "answered_incorrectly": 0
+    "capital": "Cheyenne"
 }]
 
 answers = {
     "correct": 0,
     "incorrect": 0
 }
+
+# Add a score tally for each state to keep track of how many times they were guessed correctly.
+for state in states:
+    state["answered_correctly"] = 0
+    state["answered_incorrectly"] = 0
 
 print('Welcome to State Capitalzzz!')
 
@@ -267,13 +172,15 @@ play_again = True
 while (play_again):
     random.shuffle(states)
     for state in states:
+        answer = None
 
         if state["answered_incorrectly"] > 0:
             answer = input(f"What is the capital of {state['name']}? \n HINT: {state['capital'][0:3]} \n")
         else:
             answer = input(f"What is the capital of {state['name']}? \n")
-
-        if answer == state["capital"].lower():
+        # print(answer)
+        # print(answer.lower())
+        if answer.lower() == state["capital"].lower():
             state["answered_correctly"] += 1
             answers["correct"]+= 1
             print(f"You are correct! \n \tTotal Score: Correct - {answers['correct']}, Incorrect - {answers['incorrect']}")
