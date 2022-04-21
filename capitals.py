@@ -170,7 +170,7 @@ def game():
             iteration += 1
             print(f"Incorrect, you have {correct} correct points and {incorrect} incorrect points ")
     if iteration == 50:
-        restart = input("Would you like to play again?: ")
+        restart = input("Would you like to play again?:(Yes or No) ")
         if restart == 'Yes':
            game()
         else:
