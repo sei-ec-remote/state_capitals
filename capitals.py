@@ -1,3 +1,6 @@
+from click import prompt
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +153,20 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+def state_capital_game ():
+    random.shuffle(states)
+    points = 0
+    prompt = input("How well do you know the Capitals?? Type Yes to try your knowledge")
+    if prompt == "yes":
+        for state in states:
+            question = input("What is the capital of {}?: ".format(state["name"]))
+            if question == state["capital"]:
+                points += 1
+                print(f"Your Right! your score is {points}")
+            else:
+                points -=1
+                print(f"That is incorect. Try again! your score is {points}")
+        total = points
+        print(f"You got {total}/50 capitals correct!")
+state_capital_game()
