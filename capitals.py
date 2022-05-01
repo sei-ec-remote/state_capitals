@@ -1,3 +1,4 @@
+import random
 states = [
 {
     "name": "Alabama",
@@ -150,3 +151,32 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+def states_game():
+    print ('Welcome to the Capitals game, let"s have some fun and play')
+    # import the random method to shuffle trhought the states at random
+    random.shuffle(states)
+    # varibales for right and wrong answers
+    correct = 0
+    wrong = 0 
+    # for loop that loops through the states for a state
+    for state in states:
+        capital = input(f"What is the capital of {state['state']}? \n")
+        # if the capital input is the same as the capital in the dict then award one correct point
+        if capital == (f"{state['capital']}"):
+            correct += 1
+            print(f'Good work! Correct: {correct} Wrong: {wrong}')
+        else: 
+            wrong += 1
+            print(f'Oops, that was wrong! Correct: {correct} Wrong: {wrong}')   
+     # after the game is over ask if user wants to play again
+    replay_game = input(f'Game over! Correct: {correct} Wrong: {wrong}. \n Would you like to play again (y/n)')
+    # if user says y then recall the states_game function, if the user input is n give a goodbye message and if the user inputs any other string then give better instruction for the next time they play and end the game automatically
+    if replay_game == 'y':
+        states_game()
+    elif replay_game == 'n':
+        print('Thanks for playing! See ya.')
+    else:  
+        print('Sorry you need to input a y or n. Bye.')
+
+states_game()
