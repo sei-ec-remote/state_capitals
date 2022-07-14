@@ -1,3 +1,4 @@
+import random
 states = [
 {
     "name": "Alabama",
@@ -150,3 +151,45 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+test_states = {
+    "name": "Massachusetts",
+    "capital": "Boston"
+}, {
+    "name": "California",
+    "capital": "Sacramento"
+}, {
+    "name": "Florida",
+    "capital": "Tallahassee"
+}
+# *Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+
+# *Provide a welcome message to introduce the player to the game.
+welcome = ("Welcome to the state capitals game!")
+print(welcome)
+# *Initialize new keys in the dictionaries that store the number of times a user gets a capital correct and the number of times the answer is wrong.
+
+# *Through all 50 states, prompt the user to name the capital of the state.
+def america_game():
+    correct_count = 0
+    random.shuffle(states)
+    for state in states:
+        print("What is the capital of " + state["name"] + "?")
+# *If the answer is correct, display a message saying so, and increment the correct key.
+        answer = input()
+        if answer == state["capital"].capitalize():
+            print('Correct!')
+            correct_count += 1
+# *If the answer is wrong, display a message saying so, and increment the wrong key.
+        else:
+            print('Wrong!')
+# *After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
+    print("You got " + str(correct_count) + " out of " + str(len(states)) + " correct.")
+# *Once the user has gone through all 50 states, ask them if they'd like to play again.
+    play_again = input("Would you like to play again? (y/n)")
+    if play_again == "y":
+        america_game()
+    else:
+        print("Thanks for playing!")
+# *Getting Started You're given an array of dictionaries that contain each state name and capital.
+america_game()
+# *Hint: For the purposes of developing this program, start with a test array of three dictionaries so you don't have to play through all 50 states each time.
