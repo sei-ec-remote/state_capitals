@@ -1,152 +1,51 @@
-states = [
-{
-    "name": "Alabama",
-    "capital": "Montgomery"
-}, {
-    "name": "Alaska",
-    "capital": "Juneau"
-}, {
-    "name": "Arizona",
-    "capital": "Phoenix"
-}, {
-    "name": "Arkansas",
-    "capital": "Little Rock"
-}, {
-    "name": "California",
-    "capital": "Sacramento"
-}, {
-    "name": "Colorado",
-    "capital": "Denver"
-}, {
-    "name": "Connecticut",
-    "capital": "Hartford"
-}, {
-    "name": "Delaware",
-    "capital": "Dover"
-}, {
-    "name": "Florida",
-    "capital": "Tallahassee"
-}, {
-    "name": "Georgia",
-    "capital": "Atlanta"
-}, {
-    "name": "Hawaii",
-    "capital": "Honolulu"
-}, {
-    "name": "Idaho",
-    "capital": "Boise"
-}, {
-    "name": "Illinois",
-    "capital": "Springfield"
-}, {
-    "name": "Indiana",
-    "capital": "Indianapolis"
-}, {
-    "name": "Iowa",
-    "capital": "Des Moines"
-}, {
-    "name": "Kansas",
-    "capital": "Topeka"
-}, {
-    "name": "Kentucky",
-    "capital": "Frankfort"
-}, {
-    "name": "Louisiana",
-    "capital": "Baton Rouge"
-}, {
-    "name": "Maine",
-    "capital": "Augusta"
-}, {
-    "name": "Maryland",
-    "capital": "Annapolis"
-}, {
-    "name": "Massachusetts",
-    "capital": "Boston"
-}, {
-    "name": "Michigan",
-    "capital": "Lansing"
-}, {
-    "name": "Minnesota",
-    "capital": "St. Paul"
-}, {
-    "name": "Mississippi",
-    "capital": "Jackson"
-}, {
-    "name": "Missouri",
-    "capital": "Jefferson City"
-}, {
-    "name": "Montana",
-    "capital": "Helena"
-}, {
-    "name": "Nebraska",
-    "capital": "Lincoln"
-}, {
-    "name": "Nevada",
-    "capital": "Carson City"
-}, {
-    "name": "New Hampshire",
-    "capital": "Concord"
-}, {
-    "name": "New Jersey",
-    "capital": "Trenton"
-}, {
-    "name": "New Mexico",
-    "capital": "Santa Fe"
-}, {
-    "name": "New York",
-    "capital": "Albany"
-}, {
-    "name": "North Carolina",
-    "capital": "Raleigh"
-}, {
-    "name": "North Dakota",
-    "capital": "Bismarck"
-}, {
-    "name": "Ohio",
-    "capital": "Columbus"
-}, {
-    "name": "Oklahoma",
-    "capital": "Oklahoma City"
-}, {
-    "name": "Oregon",
-    "capital": "Salem"
-}, {
-    "name": "Pennsylvania",
-    "capital": "Harrisburg"
-}, {
-    "name": "Rhode Island",
-    "capital": "Providence"
-}, {
-    "name": "South Carolina",
-    "capital": "Columbia"
-}, {
-    "name": "South Dakota",
-    "capital": "Pierre"
-}, {
-    "name": "Tennessee",
-    "capital": "Nashville"
-}, {
-    "name": "Texas",
-    "capital": "Austin"
-}, {
-    "name": "Utah",
-    "capital": "Salt Lake City"
-}, {
-    "name": "Vermont",
-    "capital": "Montpelier"
-}, {
-    "name": "Virginia",
-    "capital": "Richmond"
-}, {
-    "name": "Washington",
-    "capital": "Olympia"
-}, {
-    "name": "West Virginia",
-    "capital": "Charleston"
-}, {
-    "name": "Wisconsin",
-    "capital": "Madison"
-}, {
-    "name": "Wyoming",
-    "capital": "Cheyenne"
-}]
+import random
+from states_data import states
+
+class Game():
+
+    def __init__(self,states):
+        self.statesArr = states
+        self.states = self.statesArr[:]
+        self.right = 0
+        self.total = 0
+        print("Welcome to the state capitol naming game!")
+        self.game_round()
+
+    def game_round(self):
+        round_state = self.states.pop(random.randint(0,len(self.states)-1))
+        resp = input(f"What is the capitol of {round_state['name']}? Or type 'quit' to exit.\n").lower()
+        self.total += 1
+        if resp == 'quit':
+            return
+        elif resp == round_state['capital'].lower():
+            print(f"WOW! EXCELLENT. YOU ARE SPECTACULAR!")
+            self.right += 1
+            self.display_points()
+        else:
+            print(f"Incorrect. I really think you need to study more... How could you miss this one! It's sooooooooo easy! It's {round_state['capital']}")
+            self.display_points()
+
+        #print(f"remaining states are {self.states}")
+
+        if self.states:
+            self.game_round()
+        else:
+            cont = input("Would you like to continue? y/n\n").lower()
+            if cont == 'y':
+                self.states = self.statesArr[:]
+                self.game_round()
+            else:
+                return
+
+
+    
+    def display_points(self):
+        print(f"You've scored {self.right} out of {self.total} attempts.")
+        if self.right/self.total < 0.7:
+            print(f"I think you need to study your capitols a bit more. Keep trying!")
+        else:
+            print(f"You're doing great! Nice score. Keep going.")
+
+gameTIIIIMMMMMEEEE = Game(states)
+
+
