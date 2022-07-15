@@ -17,15 +17,16 @@ for state in states:
 ## add new keys to dictionary to track each time user gets specific capital right/wrong
 def play_game(right, wrong):
 
+    print('Welcome to "State Capitals! You will be given a state, your job is to correctly guess the capital. A tally will be kept of your right and wrong answer counts. Good Luck!!') if right == 0 and wrong == 0 else print(f'Wrong guesses: {wrong} Right guesses: {right}')
+
     random_states = random.sample(states, len(states))
     
-    print('Welcome to "State Capitals! You will be given a state, your job is to correctly guess the capital. A tally will be kept of your right and wrong answer counts. Good Luck!!')
-
+    
     while len(random_states) > 0:
         state = random_states[0]
         ##select first random state and assign user input to variable
         user_guess = input(f"Guess the capital of {state['name']}: ")
-        if user_guess == state['capital']:
+        if user_guess.lower() == state['capital'].lower():
             right += 1
             state['right'] += 1
             print(f'Correct! {user_guess} is the capital of {state["name"]}')
