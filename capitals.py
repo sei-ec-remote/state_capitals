@@ -160,7 +160,7 @@ test_states = [
     {'name': 'Washington', 'capital': 'olympia'},
 ]
 
-
+print('Welcome to State Capital Game!')
 for i in range(len(test_states)):
     state_scores[test_states[i]['name']] = {
         'right': 0, 'wrong': 0, 'num_answered': 0}
