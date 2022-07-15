@@ -26,18 +26,18 @@ def play_game(right, wrong):
     while len(random_states) > 0:
         state = random_states[0]
         ##select first random state and assign user input to variable
-        user_guess = input(f"Guess the capital of ${state['name']}: ")
+        user_guess = input(f"Guess the capital of {state['name']}: ")
         if user_guess == state['capital']:
             right += 1
             state['right'] += 1
-            print(f'Correct! ${user_guess} is the capital of ${state["name"]}')
-            print(f'You have guessed the capital of ${state["name"]} correctly ${state["right"]} times and incorrectly ${state["wrong"]} times')
+            print(f'Correct! {user_guess} is the capital of {state["name"]}')
+            print(f'You have guessed the capital of {state["name"]} correctly {state["right"]} times and incorrectly {state["wrong"]} times')
         else:
             wrong -= 1
-            state['wrong'] -= 1
-            print(f'Incorrect. ${state["capital"]} is the capital of ${state["name"]}')
+            state['wrong'] += 1
+            print(f'Incorrect. {state["capital"]} is the capital of {state["name"]}')
 
-        print(f'In total, you have guessed ${right} right answers and ${wrong} wrong answers.')
+        print(f'In total, you have guessed {right} right answers and {wrong} wrong answers.')
         random_states.pop(0)
 
 play_game(right_answers, wrong_answers)
