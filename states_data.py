@@ -8,7 +8,8 @@ states = [
 }, {
     "name": "Arizona",
     "capital": "Phoenix"
-}, {
+}]
+""" , {
     "name": "Arkansas",
     "capital": "Little Rock"
 },
@@ -22,8 +23,7 @@ states = [
 }, {
     "name": "Connecticut",
     "capital": "Hartford"
-}]
-""" ,{
+},{
     "name": "Delaware",
     "capital": "Dover"
 }, {
