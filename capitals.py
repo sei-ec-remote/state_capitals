@@ -1,4 +1,6 @@
-states = [
+import random
+state_capitals = [
+
 {
     "name": "Alabama",
     "capital": "Montgomery"
@@ -150,3 +152,45 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+def run_game():
+  play = ""
+  while play != 'q' or play != 'Q':
+    play = input('Lets play the states and capitals game! Guess the correct capital to the state. Press the A key to continue or Q to quit: ')
+    if play == 'a' or play == 'A':
+      win_counter = 0
+      wrong_counter = 0
+      random.shuffle(state_capitals)
+      for state in state_capitals:
+        print('')
+        print(f'State: {state["name"]}')
+        guess = input('Capital: ')
+        if guess == state["capital"] or guess == state["capital"].lower():
+          win_counter += 1
+          print('')
+          print('You were correct!')
+          print(f'Correct: {win_counter}')
+          print(f'Wrong: {wrong_counter}')
+        else:
+          wrong_counter += 1
+          print('')
+          print(f'The correct answer is {state["capital"]}')
+          print('')
+          print(f'Correct: {win_counter}')
+          print(f'Wrong: {wrong_counter}')
+          print('')
+      print(f'Your score is {win_counter} out of {len(state_capitals)}')
+      print('')
+      play_again = input('Do you want to play again? Enter Y or N: ')
+      if play_again == 'Y' or play_again == 'y':
+        print('')
+        run_game()
+      else:
+        print('')
+        print(f'Thank you for playing!')
+        break
+    else:
+      break
+
+
+run_game()
