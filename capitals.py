@@ -160,34 +160,28 @@ test_states = [
 ]
 
 print('Welcome to my State Capitals Game!')
-for i in range(len(test_states)):
-    state_answers[test_states[i] ['name']] = {
-        'right': 0, 'wrong': 0, 'number_answered': 0}
-
-    while(prompt != 'n'):
-        answers = {
-            'correct_count': 0,
-            'wrong_count': 0,
-        }
+while(prompt != 'no'):
+    answers = {
+        'correct_count': 0,
+        'wrong_count': 0,
+    }
         
-        def correct(state):
+    for i in range(len(test_states)):
+        state_answers[test_states[i] ['name']] = {
+            'right': 0, 'wrong': 0, 'number_answered': 0}
+        current_state = test_states[i] ['name']
+        current_capital = test_states[i] ['capital']
+        guess = input(f'What is the capital of {current_state}? ' )
+        if guess == current_capital:
             answers['correct_count'] += 1
-            state_answers[f'{state}'] ['right']  += 1
-            state_answers[f'{state}'] ['number_answered'] +=1
+            print(f"You answered total correct answers: {answers['correct_count']}")
+            
+        else:
+            answers['wrong_count'] += 1
+            print(f"You answered total wrong answers: {answers['wrong_count']}")
+            
+            
 
-            def wrong(state):
-                answers['wrong_count'] += 1
-                state_answers[f'{state}'] ['wrong'] += 1
-                state_answers[f'{state}'] ['number_answered'] += 1
-
-                state_questions = []
-                for i in range(len(test_states)) :
-                    current_state = test_states[i] ['name']
-                    current_capital = test_states[i] ['capital']
-                    state_questions.append({'state': current_state, 'result': correct(current_state) or print(f"You are correct! Currently you have {scores['correct_count']} correct and {scores['wrong_count']} wrong. - You got this question right {state_scores[current_state]['right']} time(s) out of {state_scores[current_state]['num_answered']}") or True if str(input(
-            f'What is the capital of {current_state}? [Hint:{current_capital[0:3]}]  :')).lower() == current_capital else wrong(current_state) or print(f"You are incorrect! Currently you have {scores['correct_count']} correct and {scores['wrong_count']} wrong. - You got this question right {state_scores[current_state]['right']} time(s) out of {state_scores[current_state]['num_answered']}")})
-
-    print(f"Total correct answers: {scores['correct_count']}")
-    print(f"Total Wrong answers: {scores['wrong_count']}")
+                
     prompt = input('Do you wanna play again? Yes/No :')
 
