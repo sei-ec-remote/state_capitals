@@ -10,7 +10,6 @@ Your program should prompt the user to identify the capital associated with a gi
 There should be running tallies on the number of correct and incorrect answers for each state
 After getting through all 50 states one time, users should be asked whether or not they want to play again.
 
-
 # Game Requirements
 *Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
 
