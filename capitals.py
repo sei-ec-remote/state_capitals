@@ -1,4 +1,8 @@
-states = [
+import random
+
+class StatesGame():
+  def __init__(self):
+    self.states = [
 {
     "name": "Alabama",
     "capital": "Montgomery"
@@ -150,3 +154,30 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+    random.shuffle(self.states)
+    self.tallies = {
+        'correct': 0,
+        'wrong': 0
+    }
+    print ('Welcome to the State Capitals Game!!')
+  def startGame(self):
+    count = 0
+    for state in self.states:
+      state_name = state['name']
+      state_capital = state['capital']
+      capital_input = input(f'Please enter the capital of {state_name} (Hint: first three letters are \'{state_capital[:3]}\'): ')
+      if capital_input == state_capital:
+        self.tallies['correct'] += 1
+      else: self.tallies['wrong'] += 1
+      count += 1
+      correct_tally = self.tallies['correct']
+      print(f'Score so far: {correct_tally} correct out of {count}')
+    play_again_input = input('Do you want to play again? Enter y or n: ')
+    if play_again_input == 'y':
+      self.tallies['correct']=0
+      self.tallies['wrong']=0
+      self.startGame()
+    else: print('Thanks for playing!')
+
+states_game = StatesGame()
+states_game.startGame()
