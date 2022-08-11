@@ -175,8 +175,10 @@ correct_this_round = 0
 wrong_this_round = 0
 random.shuffle(states)
 
-while playing == True:
-        
+# Provide a welcome message to introduce the player to the game.
+print("\nHello! Welcome to the game. We ask you questions, and you answer them. Then we tel you how smart you are. \n\nLets get started!!!!!!\n")
+
+while playing == True:        
     for state in states:
         capital = input(f"What is the capital associated {state['name']}? ")
         if capital == state['capital']:
