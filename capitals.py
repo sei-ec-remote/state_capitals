@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,41 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+class Player():
+    def __init__(self):
+        self.correct = 0
+        self.wrong = 0
+        self.states = states.copy()
+    def guess(self):
+        randomIdx = random.randint(0,len(self.states) - 1)
+        curr_state = self.states[randomIdx]
+        guess = input("What is the capital of {}?\n".format(curr_state["name"]))
+
+        if(guess.lower() == curr_state["capital".lower()]):
+            self.correct+= 1
+            print("correct! current score is: {}/{}".format(self.correct, self.correct+self.wrong))
+            self.states.pop(randomIdx)
+        else:
+            self.wrong += 1
+            print("nope, it's actually {}! you suck! current score is: {}/{}".format(curr_state["capital"],self.correct, self.correct+self.wrong))
+            self.states.pop(randomIdx)
+    def reset(self):
+        self.__init__()
+        return True
+    
+    def playgame(self):
+        while(len(self.states) > 0):
+            self.guess()
+        print("your final score is: {}/{}".format(self.correct, self.correct+self.wrong))
+        continuing = input("you're done! play again? y/n:\n")
+        if(continuing.lower() == "y"):
+            self.reset()
+            self.playgame()
+        else:
+            return True
+
+
+print("welcometo state guesser!")
+player = Player()
+player.playgame()
