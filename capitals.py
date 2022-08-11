@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,37 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+# function to start game
+def state_capital_game():
+
+    # shuffle the states
+    random.shuffle(states)
+    play_again = 'yes'
+    correct_ans = 0
+    wrong_ans = 0
+
+    # while loop to keep asking questions
+    while play_again == 'yes':
+        print("Do you know your state capitals?")
+
+        # for loop to iterate through states
+        for state in states:
+            question = input(f"What is the capital of {state['name']}?")
+
+            # comparison to check if answer is correct
+            if question == state['capital']:
+                # function to keep score (right and wrong answers)
+                correct_ans +=1
+                print(f"you are correct!")
+            else:
+                wrong_ans +=1
+                print(f"Your answer is not right.")
+            print(f"You got {correct_ans} correct and {wrong_ans} wrong!")
+        player_again = input(f"Do you want to play again? (yes or no)")
+
+state_capital_game()
+
+
+
+
