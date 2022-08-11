@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,21 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+def quiz_game():
+    random.shuffle(states)
+    keep_playing = 'y'
+    correct_answers = 0
+    wrong_answers = 0
+    while keep_playing == 'y':
+        print("Let's play name the capital!")
+        for state in states:
+            user_answer = input(f"What is the capital of {state['name']}")
+            if user_answer == state['capital']:
+                correct_answers += 1
+            else:
+                wrong_answers += 1
+        print(f'Thank you for playing! You got {correct_answers} correct answers and {wrong_answers} wrong ones!')
+        keep_playing = input('To keep playing, press y, press any other key to exit')
+
+quiz_game()
