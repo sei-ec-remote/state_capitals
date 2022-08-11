@@ -189,10 +189,12 @@ while playing == True:
             print('That wasn\'t right at all! How could you?\n')
             state['wrong'] = state['wrong'] + 1
             wrong_this_round += 1
-
+        print(f"This was answered correctly {state['correct']} out of the total of {state['correct'] + state['wrong']} times you have answered.")
     print(f"You got {correct_this_round} of them correct!")
     print(f"You got {wrong_this_round} of them wrong!")
 
     again = input('\nDo you want to play again? Maybe you can do better. (n/no): ')
     if again == 'n' or again == 'no':
         playing = False
+    correct_this_round = 0
+    wrong_this_round = 0
