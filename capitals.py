@@ -167,7 +167,7 @@ short_state_list = [{
 class GameSession():
     def __init__(self):
         # self.questions_asked = questions_asked
-        for state in short_state_list:
+        for state in states:
             state['correct'] = 0
             state['wrong'] = 0
         # random.shuffle(short_state_list)
@@ -176,109 +176,48 @@ class GameSession():
         print("Welcome to the State Capital Quiz Game!")
         print("We will give you the name of a state and you try to guess its capital city.")
         print("Good luck!")
-        self.play_game()
+        self.ask_question()
     def ask_question(self):
-        random_index = randrange(0, len(short_state_list))
-        answer = input(f"State capital of {short_state_list[random_index]['name']} is:\n")
-        if(answer == short_state_list[random_index]["capital"]):
+        random_index = randrange(0, len(states))
+        answer = input(f"State capital of {states[random_index]['name']} is:\n")
+        if(answer == states[random_index]["capital"]):
             print("Correct!")
-            short_state_list[random_index]['correct'] += 1
+            states[random_index]['correct'] += 1
         else: 
             print("Wrong...")
-            short_state_list[random_index]['wrong'] += 1
-        correct = short_state_list[random_index]['correct']
-        total = short_state_list[random_index]['correct'] + short_state_list[random_index]['wrong']
-        print(f"You got the state of {short_state_list[random_index]['name']} right {correct}/{total} times")
+            states[random_index]['wrong'] += 1
+        correct = states[random_index]['correct']
+        total = states[random_index]['correct'] + states[random_index]['wrong']
+        print(f"You got the state of {states[random_index]['name']} right {correct}/{total} times")
         # self.questions_asked += 1
-        self.play_game()
+        quiz_user_on = filter(self.left_to_be_quizzed_on, states)
+        list_to_be_quizzed_on = len(list(quiz_user_on))
+        # print(list_to_be_quizzed_on)
+        if(list_to_be_quizzed_on > 0):
+            self.ask_question()
+        else:
+            self.play_again()
     def play_again(self):
         print("You have been quizzed on all our states!")
         play_again = input("Want to play again?\n")
         if(play_again.lower() == 'no'):
-            # this_game_number = this_game_number + 1
+            # print('Thanks for playing!')
             stop_game()
             # stop_game()
         else:
             # this_game_number = this_game_number + 1
             # games_played = this_game_number
             this_game = GameSession()
-    def play_game(self):
-    # this_game_number = games_played
-        # this_game = this_game
-        # continue_current_game()
-        # def continue_current_game():
-            # games_played = games_played
-        for state in short_state_list:
-            if(state['correct'] == 0 and state['wrong'] == 0):
-                self.ask_question()
-        self.play_again()
+    def left_to_be_quizzed_on(self, item):
+        # to_be_asked = list(filter(lambda item: short_state_list['correct'] == 0 and short_state_list['wrong'] == 0, short_state_list))
+        # print(to_be_asked)
+        if(item['correct'] == 0 and item['wrong'] == 0):
+            return True
+        else:
+            return False
     
 
 def stop_game():
     print('Thanks for playing!')
-    return
   
 this_game = GameSession()
-
-
-
-# def play_game(this_game):
-#     # this_game_number = games_played
-#     this_game = this_game
-#     # continue_current_game()
-#     def continue_current_game():
-#         # games_played = games_played
-#         this_game.ask_question()
-#         for state in short_state_list:
-#             if(state['correct'] == 0 and state['wrong'] == 0):
-#                 continue_current_game()
-        
-        # for i, state in enumerate(short_state_list):
-        #     if((state['correct'] + state['wrong']) == 0):
-        #         global number_of_states_quizzed_on += 1
-        #         continue
-        #     else:
-        #         global number_of_states_quizzed_on = i
-        #         break
-        # if(len(short_state_list) < this_game.number_of_questions()):
-        # play_again = input("Want to play again?\n")
-
-    #     if(this_game.play_again() == 'no'):
-    #         # this_game_number = this_game_number + 1
-    #         # print("Thanks for playing!")
-    #         stop_game()
-    #     else:
-    #         # this_game_number = this_game_number + 1
-    #         # games_played = this_game_number
-    #         play_game()
-    # continue_current_game()
-
-# if(number_of_states_quizzed_on < len(short_state_list)):
-#     play_game()
-
-# games_played = 0
-
-# if(games_played == 0):
-# play_game()
-
-
-    
-# print(len(short_state_list))
-# print(this_game.number_of_questions())
-
-
-# if(len(short_state_list) > number_of_states_quizzed_on):
-#     play_again = input("Want to play again?")
-#     if(play_again.lower() == 'no'):
-#         print("Thanks for playing!")
-#     else:
-#         this_game = GameSession()
-#         play_game()
-# else:
-#     print("keep on playing..")
-#     play_game()
-# random.shuffle(short_state_list)
-# this_game.ask_question()
-
-
-
