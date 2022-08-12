@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,27 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+correct_score = 0
+incorrect_score = 0
+play_again = 'yes'
+
+print('Welcome to the states and capitols quiz game! Try to enter as many capitols for each state. Ready!? Here is the first question....')
+while play_again == "yes":
+
+    random.shuffle(states)
+
+# This looks through the states
+
+    for state in states:
+
+        prompt = input(f'What is the capital of {states[states.index(state)]["name"]}?\n')
+
+        if prompt == states[states.index(state)]["capital"]:
+            correct_score += 1
+            print(f'That is right! So far you have {correct_score} correct answers')
+        else: 
+            print(f'Not quite. The answer we are looking for is {states[states.index(state)]["capital"]}')
+            incorrect_score += 1
+    play_again = input(f"Game Over!\n Your score is {correct_score}\nnoYou guessed {innocect_score} incorrect\nDo you want to play again? (yes/no)\n" )
+
