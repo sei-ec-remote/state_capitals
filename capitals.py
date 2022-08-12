@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,43 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+def capitals_game():
+    random.shuffle(states)
+    welcome_msg = input("Welcome, would you like to play a game? \n")
+    if welcome_msg == 'yes':
+        game_state = 'yes'
+    elif welcome_msg == 'no':
+        print("Oh okay, sorry.")
+        return False
+    correct = 0
+    incorrect = 0
+
+    print("Type 'stop' to end the game.")
+    while game_state == 'yes':
+        for state in states:
+            prompt = input(f"What is the Capital of {state['name']} \n")
+
+            if prompt == state['capital']:
+                correct += 1
+                print(f"Correct! {state['name']}'s capital is {state['capital']}.")
+
+            elif prompt == 'stop':
+                print("Quitters never win.")
+                return False
+
+            else:
+                incorrect += 1
+                print(f"Sorry, {prompt} is not the correct answer.")
+                print(f"Current score: {correct} answers and {incorrect} answers.")
+        print("Thanks for playing!")
+        print(f"Your final score is: {correct} correct and {incorrect} wrong.")
+
+        retry = input("Would you like to play again? \n")
+        if retry == 'yes':
+            game_state = 'yes'
+        elif retry == 'no':
+            print("Oh okay, sorry.")
+            return False
+
+capitals_game()
