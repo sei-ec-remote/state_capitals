@@ -172,6 +172,7 @@ def capitals_game():
             if prompt == state['capital']:
                 correct += 1
                 print(f"Correct! {state['name']}'s capital is {state['capital']}.")
+                print(f"Current score: {correct} answers and {incorrect} answers.")
 
             elif prompt == 'stop':
                 print("Quitters never win.")
