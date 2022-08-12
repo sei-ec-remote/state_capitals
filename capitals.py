@@ -151,47 +151,31 @@ states = [
         "name": "Wyoming",
         "capital": "Cheyenne"
     }]
-correct = 0
-correct_states = []
-incorrect = 0
-incorrect_states = []
-turn = 0
 
 print("Welcome! Lets see how well you know US capital cities.")
-
-
 def quiz_capitals():
+    correct = 0
+    correct_states = []
+    incorrect = 0
+    incorrect_states = []
     random.shuffle(states)
     for state in states:
         q = input(f'\n What is the capital of {state["name"]}? ')
-        global incorrect
-        global incorrect_states
-        global correct
-        global correct_states
-        global turn
         if q == state["capital"]:
             correct += 1
-            turn += 1
             correct_states.append(state["name"][0:5:1])
             print(
                 f"\n Nice \n correct: {correct} \n{correct_states}, \n incorrect: {incorrect} \n {incorrect_states}")
         else:
             incorrect += 1
-            turn += 1
             incorrect_states.append(state["name"][0:5:1].upper())
             print(
                 f"\n Nope! Its {state['capital']}. \n correct: {correct} \n {correct_states}, \n incorrect: {incorrect} \n {incorrect_states}")
     post_q = input("Want to play again? ")
 
     if post_q == "yes":
-        correct = 0
-        correct_states = []
-        incorrect = 0
-        incorrect_states = []
-
         quiz_capitals()
     else:
         print('k bye')
-
-
+#start the game!
 quiz_capitals()
