@@ -179,8 +179,6 @@ def quiz_capitals():
             incorrect_states.append(state["name"][0:5:1].upper())
             print(f"\n Nope! Its {state['capital']}. \n correct: {correct} \n {correct_states}, \n incorrect: {incorrect} \n {incorrect_states}")
         
-        if turn > 50:
-            print('suhhh')
 
 quiz_capitals()
 post_q = input("Want to play again? ")
