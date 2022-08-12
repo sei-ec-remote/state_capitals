@@ -1,3 +1,6 @@
+import random
+import array
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +153,75 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+answer_tracker = [
+    {
+        "correct" : "",
+        "incorrect" : ""
+    }
+]
+
+
+states_short = [
+{
+    "name": "Alabama",
+    "capital": "Montgomery"
+}, {
+    "name": "Alaska",
+    "capital": "Juneau"
+}, {
+    "name": "Arizona",
+    "capital": "Phoenix"
+}, {
+    "name": "Arkansas",
+    "capital": "Little Rock"
+}]
+
+###################################################################################3
+"""
+def a_range():
+    return list(range(0,50))
+random_range = a_range()
+random.shuffle(random_range)
+random_range
+"""
+
+print("\n")
+print("Welcome to the State Capitals guessing game! Type the state capital \
+with the correct spelling.")
+print("\n")
+
+random.shuffle(states)
+correct = 0
+incorrect = 0
+
+
+
+while(True):
+    for element in states:
+        answer = input("What is the capital of " + element["name"] + "? ")
+        print("\n")
+        if(answer.lower() == element["capital"].lower()):
+            print("That is correct!")
+            correct += 1
+        else:
+            print("That is not correct")
+            incorrect += 1
+
+        print("\n")
+        print(f"Your number correct is {correct} and number incorrect is {incorrect}.")
+        print("\n")
+
+    play_again = input(f"Your score was: {correct} correct and {incorrect} incorrect. Would you like to play again? ")
+    print("\n")
+    if play_again.lower() == "yes" or play_again.lower() == "y":
+        correct = 0
+        incorrect = 0
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("\n")
+    elif play_again.lower() == "no" or play_again.lower() == "n":
+        break
+
+
+
+
