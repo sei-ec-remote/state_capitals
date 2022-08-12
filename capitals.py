@@ -178,13 +178,7 @@ states_short = [
 }]
 
 ###################################################################################3
-"""
-def a_range():
-    return list(range(0,50))
-random_range = a_range()
-random.shuffle(random_range)
-random_range
-"""
+
 
 print("\n")
 print("Welcome to the State Capitals guessing game! Type the state capital \
@@ -194,6 +188,13 @@ print("\n")
 random.shuffle(states)
 correct = 0
 incorrect = 0
+"""
+def a_range():
+    return list(range(0,50))
+random_range = a_range()
+random.shuffle(random_range)
+random_range
+"""
 
 
 
