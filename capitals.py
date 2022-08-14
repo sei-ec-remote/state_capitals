@@ -150,3 +150,33 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+import random
+
+correct = 0
+incorrect = 0
+
+
+def capitals(true, false):
+
+    print("This is State Capitals! Guess the Capital of each State that comes up! You must capitalize your answer!! We'll let ya know how many you got right and wrong.") 
+
+    random_states = random.sample(states, len(states))
+
+    while len(random_states) > 0:
+        state = random_states[0]
+        answer = input(f"Guess the capital of {state['name']}: ")
+        if answer == state['capital']:
+            true += 1
+            print('Correct!')
+        else:
+            false += 1
+            print('Incorrect.')
+        
+        print(f'In total, you have guessed {true} right answers and {false} wrong answers.')
+        random_states.pop(0)
+
+
+capitals(correct, incorrect)
+
