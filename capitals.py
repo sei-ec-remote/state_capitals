@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,56 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+# global variables
+# might need to input more...not sure yet
+answer_correct = 0
+answer_wrong = 0
+continue_playing = "yes"
+
+# print welcome message for game
+# remember to space out codes to help me with view
+print("Welcome to Guess the Capital Game! Are you ready playa!?")
+while continue_playing == "yes":
+
+    random.shuffle(states)
+
+    for state in states:
+
+        question = input(f"What is the capital of {state['name']}? \n")
+
+        if question == state["capital"]:
+
+            answer_correct = answer_correct + 1
+            print(f"Correct playa! Keep rolling! You have {answer_correct} correct!")
+
+            if answer_correct == 10:
+                print("Yoo! You are smacking this game!")
+
+            elif answer_correct == 20:
+                print("You are amazing! Keep the ball rolling!")
+
+        else:
+
+            answer_wrong = answer_wrong + 1
+            print(f"That is wrong my friend. The correct answer is {state['capital']}.")
+
+    if answer_correct <= 10:
+        continue_playing == input(f"Game over. You got {answer_correct} correct and {answer_wrong} wrong. Try harder next time!")
+
+    elif answer_correct >= 10 <= 20:
+        continue_playing == input(f"Game over. You got {answer_correct} correct and {answer_wrong} wrong. You are doing better! Keep pushing playa!")
+
+    elif answer_correct == 30:
+        continue_playing == input(f"Game over. You got {answer_correct} correct and {answer_wrong} wrong. Wow! Look at your progress! Now try for all 50 states!")
+
+    elif answer_correct == 50:
+        continue_playing == input(f"Yo!!!! You busted up all 50 questions! You must be a capitals prodigy! Do you want to school this game again!?")
+
+        if continue_playing == "yes":
+            continue_playing == "yes"
+
+        else: print("Play again if you enjoyed the game!")
+            
+
