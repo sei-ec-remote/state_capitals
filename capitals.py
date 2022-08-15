@@ -1,4 +1,5 @@
-states = {
+import random
+states = [
 {
     "name": "Alabama",
     "capital": "Montgomery"
@@ -149,33 +150,29 @@ states = {
 }, {
     "name": "Wyoming",
     "capital": "Cheyenne"
-}}
+}]
 
-# *Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
-
-# *Initialize new keys in the dictionaries that store the number of times a user gets a capital correct and the number of times the answer is wrong.
-
-# *Through all 50 states, prompt the user to name the capital of the state.
-
-# *If the answer is correct, display a message saying so, and increment the correct key.
-
-# *If the answer is wrong, display a message saying so, and increment the wrong key.
-
-# *After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
-
+# *Hint: For the purposes of developing this program, start with a test array of three dictionaries so you don't have to play through all 50 states each time.
+# dev_states = [
+# {
+#     "name": "Alabama",
+#     "capital": "Montgomery"
+# }, {
+#     "name": "Alaska",
+#     "capital": "Juneau"
+# }, {
+#     "name": "Arizona",
+#     "capital": "Phoenix"
+# }    
+# ]
 # *Once the user has gone through all 50 states, ask them if they'd like to play again.
 
 # *Getting Started You're given an array of dictionaries that contain each state name and capital.
 
-# *Hint: For the purposes of developing this program, start with a test array of three dictionaries so you don't have to play through all 50 states each time.
-
-# Potentially Useful Methods *print *input *for loop *sorted *random.shuffle()
-
 # Bonus! Calculate a overall total score, display a running tally for each prompt If the user plays again, set the order of how the prompts appear to start with the ones they got wrong the most often. Add a hint functionality that prints the first 3 letters of a capital
 
 
-# The game needs a welcome message:
-print('Welcome! It\'s time to learn the state capitals of the United States.')
+
 
 # How many times did they get a capital wrong, store it here
 wrong_answers = 0
@@ -183,10 +180,56 @@ wrong_answers = 0
 # How many times did they answer correctly, store it here
 right_answers = 0
 
-# If they get an answer right:
-    # print(f"You answered correctly, the answer IS {states["capital"]}!")
-# If they get an answer wrong:
-    # print(f"That is the wrong answer, the correct answer is {states[capital]}.")
-# print (f"Correct Answers: {(self.)correct_answers} ; Wrong Answers: {wrong_answers})
+#  initialize new keys in the dictionary for right and wrong
+for state in states:
+    state['right'] = 0
+    state['wrong'] = 0
+# test states
+# for state in dev_states:
+#     state['right'] = 0
+#     state['wrong'] = 0
 
-# print(len(states)) - states is acting as a list, not a dictionary?
+
+# start the game function
+def game_round(right_answers, wrong_answers):
+    # The game needs a welcome message:
+    print('Welcome! It\'s time to learn the state capitals of the United States. When answering, please use correct casing or it will be marked incorrect.')
+    
+    # randomizing the states
+    random_states = random.sample(states, len(states))
+    # test states to avoid all 50
+    # random_states = random.sample(dev_states, len(dev_states))
+    # print(random_states)
+    
+    # while loop through the game responses
+    while len(random_states) > 0:
+        state = random_states[0]
+
+        user_input = input(f'What is the capital of {state["name"]}? ')
+        
+        # If they get an answer right:
+        if user_input == state['capital']:
+            right_answers += 1
+            state['right'] += 1  
+            print(f"You answered {user_input}, and the answer is {state['capital']}! One point for you!")
+        else:
+        # If they get an answer wrong:
+            wrong_answers += 1
+            state['wrong'] += 1
+            print(f"That is the wrong answer, the correct answer is {state['capital']}. One point in the bad category.")
+        print (f"Correct Answers: {right_answers} ; Wrong Answers: {wrong_answers}")
+        # to avoid repeating the same states
+        random_states.pop(0)
+
+        if len(random_states) <= 0:
+            next_round = input('Would you like to play again? Enter y for yes and n for no. (y/n) ')
+            if next_round == 'y':
+                print(f'Beginning the next round!')
+                game_round(right_answers, wrong_answers)
+            else:
+                print('Aw, okay, let\'s play again another time, bye bye!')
+
+game_round(0, 0)
+
+
+# need to index the list to access the dictionary
