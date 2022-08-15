@@ -1,3 +1,5 @@
+import random
+#def capital_game():
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,66 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+
+
+print(" Welcome. Lets learn the state capitals!")
+
+
+    
+def capital_game():
+    random.shuffle(states)
+    correct = 0
+    wrong = 0
+
+    for state in states:
+        # this_state = state['name']
+        # this_capital = state['capital']
+        player_guess = input("What is the capital of " +  state["name"] + "? ")
+
+        if player_guess == state["capital"]:
+            print("Correct, your sooo smart")
+            correct += 1
+            print("Correct: {}".format(state["correct"]))
+            print("Your score for {} is...".format(state["name"]))
+        else:
+            print("Wrong, try agian")
+            wrong += 1
+            print("Wrong: {}".format(state["wrong"]))
+
+    re_start = input("Would you like to play again? type(yes)")
+    if re_start == "yes":
+        return capital_game()
+    else:
+        print("game over")
+        return
+
+capital_game()
+#statesList = list("states")
+
+#     state = random.choice(states["keys"])
+#     capital = states[state]
+#
+#         print ("Incorrect. The capital of " + state + " is " + capital + ".")
+#
+#print("the capital of " + state +  " is"  + str(states.get("capital"))) # create a dictionary, key is the state and value is the capital
+
+#print(len(states))
+
+# older_than_30 = [student['name'] for student in students if student['age'] > 30]
+# print(older_than_30)
+# def capital_game():
+#     random.shuffle(states)
+    
+    
+#     for state in states:
+#         list_state = state['name']
+#         list_capital = state['capital']
+       
+       
+    #user = input(f"What is the capital of: {list_state}? ")
+#states = input("What is the capital of? ")
+#print(states["name"])
+    
+    #capital_game()
