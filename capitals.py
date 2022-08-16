@@ -173,12 +173,14 @@ def capital_game():
         if player_guess == state["capital"]:
             print("Correct, your sooo smart")
             correct += 1
-            print("Correct: {}".format(state["correct"]))
-            print("Your score for {} is...".format(state["name"]))
+            #print("correct", correct)
+            print("Correct: {}".format(correct))
+            #print("Your score for {} is...".format(state["name"]))
         else:
             print("Wrong, try agian")
             wrong += 1
-            print("Wrong: {}".format(state["wrong"]))
+            #print("wrong", wrong)
+            print("Wrong: {}".format(wrong))
 
     re_start = input("Would you like to play again? type(yes)")
     if re_start == "yes":
