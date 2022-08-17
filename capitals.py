@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,31 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+print("Welcome to Guess the State Capitals!")
+
+def play_game():
+    random.shuffle(states)
+    correct_count = 0
+    incorrect_count = 0
+
+    for state in states:
+        question = input("What is the capital of " + state["name"] + "? ")
+        if question.capitalize() == state["capital"]:
+            print("You're correct!")
+            correct_count += 1
+            print(
+                f"Number of questions correct = {correct_count}")
+        else:
+            print("Wrong unfortunately")
+            incorrect_count += 1
+            print(
+                f"Number of questions correct = {correct_count}\n Number of questions incorrect = {incorrect_count}")
+        restart_game = input("Would you like to play again? yes or no?")
+        if restart_game.lower() == "yes":
+            return play_game()
+        else:
+            print("Thanks for playing, see you next time!")
+            return
+
+play_game()
