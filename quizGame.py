@@ -55,7 +55,7 @@ def game_loop():
         
         # if incorrect, add to wrong tallies
         else:
-            print("\nOops, not quite.\n")
+            print(f'\nOops, not quite.\nThe capital of {state["name"]} is {state["capital"]}.')
             state["wrong"] += 1
             if times_played > 1:
                 print(f'You knew the capital of {state["name"]} {state["correct"]} out of {state["correct"] + state["wrong"]} times.')
