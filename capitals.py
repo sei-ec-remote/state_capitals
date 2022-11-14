@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,37 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+game_in_progress = "No"
+
+if game_in_progress == "No":
+    start_game = input('Would you like to play a game? (Yes/No)\n')
+
+if start_game == "Yes" and game_in_progress == "No":
+    game_in_progress = "Yes"
+    correct = 0
+    incorrect = 0
+    qnum = 0
+
+while game_in_progress == "Yes":
+    print('\nGuess The Capital Game! Guess the capital of each state that you are prompted with, making sure to capitalize the first letter of each of your answers. \n\nGood luck! \n')
+    random.shuffle(states)
+    for item in states:
+        q = input(f"Q({qnum + 1}/50): What is the capital of " + item["name"] + "? \n")
+        if q == item["capital"]:
+            correct += 1
+            qnum += 1
+            print(f"\nCorrect! You have been awarded 1 point, bringing your total up to {correct}\n")
+        else:
+            incorrect += 1
+            qnum += 1
+            print(f"\nIncorrect. Sorry buster, no points for you. You've missed {incorrect} questions so far.\n")
+        if qnum == 50:
+            play_again = input(f'Your score was {correct}/50. Would you like to play again? (Yes/No)\n')
+            correct = 0
+            incorrect = 0
+            qnum = 0
+            if play_again == "Yes":
+                game_in_progress = "Yes"
+            elif play_again == "No":
+                game_in_progress = "No"
