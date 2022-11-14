@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,48 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+#use below to test game
+# states = [{
+#     "name": "Alabama",
+#     "capital": "Montgomery"
+# }, {
+#     "name": "Alaska",
+#     "capital": "Juneau"
+# }, {
+#     "name": "Arizona",
+#     "capital": "Phoenix"
+# }]
+
+def round_of_play():
+    random.shuffle(states)
+    for state in states:
+        correct_answer = state['capital'].casefold()
+        user_answer = input(f"What is the capital of {state['name']}? ")
+        user_answer = user_answer.casefold()
+        if user_answer == correct_answer:
+            print('Well done!')
+            state['number_correct'] += 1
+        else:
+            print('Sorry, incorrect')
+            state['number_incorrect'] += 1
+        tally = state['number_correct'] + state['number_incorrect']
+        print(f"Out of {tally} attempts, you have gotten this capital correct {state['number_correct']} times")
+    
+
+def init_game():
+    for state in states:
+        state['number_correct'] = 0
+        state['number_incorrect'] = 0
+    print("Welcome to the state capitals game!")
+    active = True
+    while active:
+        round_of_play()
+        play_again = input('Would you like to play again y/n? ')
+        active = True if play_again == 'y' else False
+    if active == False:
+        print("See you soon!")
+        return
+
+init_game()
+
