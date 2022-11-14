@@ -154,7 +154,7 @@ states = [
 
 for obj in states:
     obj["correct"] = 0
-    obj["incrorrect"] = 0
+    obj["incorrect"] = 0
 
 
 user = input("Wanna play StatR the hottest state capitol game? ")
@@ -173,7 +173,7 @@ def game_loop():
         random.shuffle(states)
         counter = 0
         for state in states:
-            if counter < 50:
+            if counter < 5:
                 curr_state = states[counter]["name"]
                 question = input(
                     f"What is the capital of {curr_state}? ").lower()
@@ -184,7 +184,8 @@ def game_loop():
                 else:
                     print("Incorrect! next question...")
                     counter += 1
-            elif counter >= 50:
+                    state["incorrect"] += 1
+            elif counter >= 5:
                 print("greater than 5")
                 user = input("Wanna play again? ")
                 if user.casefold() == "yes" or user.casefold() == 'y':
@@ -193,7 +194,9 @@ def game_loop():
                     random.shuffle(states)
                     print("play")
                 elif user.casefold() != "yes" or user.casefold() != 'y':
+                    counter = 0
                     playing = False
+                    break
 
 
 if playing == True:
