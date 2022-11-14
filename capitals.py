@@ -171,5 +171,10 @@ def state_quiz():
         else:
             incorrect += 1
             print(f"Oof... \n Correct: {correct}/50 \n Incorrect: {incorrect}/50")
+    play_again = input(f"Wow! Time flies when you are naming capitals! \n Correct: {correct}/50 \n Incorrect: {incorrect}/50 \n Care to try again? (yes/no)")
+    if play_again == 'yes':
+        state_quiz()
+    else:
+        print("Good game!")
 
 state_quiz()
