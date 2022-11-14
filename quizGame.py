@@ -69,7 +69,7 @@ def game_loop():
         game_loop()
     else:
         average_correct = sum(state["correct"] for state in states) // times_played
-        print(f"Thanks for playing!\nOn average you got {average_correct} capitals correct.\nGoodbye!")
+        print(f"Thanks for playing!\nOn average you got {average_correct} capitals correct each game.\nGoodbye!")
 
 
 
