@@ -1,3 +1,5 @@
+# This file is just the list of dictionaries
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,5 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
