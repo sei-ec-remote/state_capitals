@@ -1,21 +1,10 @@
 #run this file to "play" the "game"
 
-# from capitals import states
+
+
+from capitals import states
 import random
 
-
-states = [
-{
-    "name": "Alabama",
-    "capital": "Montgomery"
-}, {
-    "name": "Alaska",
-    "capital": "Juneau"
-}, {
-    "name": "Arizona",
-    "capital": "Phoenix"
-}
-]
 
 # Create all-time tallies for each state
 for state in states:
@@ -84,11 +73,7 @@ def game_loop():
 
 
 
-
-
-
-
-
+# Here is where the terminal prompts start
 print("Hello and welcome to the state capitals quiz game.")
 yes_or_no = input("Would you like to play?\ny/n: ")
 
