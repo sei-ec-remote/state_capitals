@@ -153,4 +153,3 @@ states = [
     "capital": "Cheyenne"
 }]
 
-
