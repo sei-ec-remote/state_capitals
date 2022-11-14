@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,25 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+print('Try and guess the capital of the state:')
+
+random.shuffle(states)
+wrong = 0
+correct = 0
+
+for state in states:
+    question = input('What is the capital of ' + state['name'] + '? ')
+    if question.title() != state['capital']:
+        wrong += 1
+        print('WRONG!')
+        print('The correct answer is: ' + state['capital'])
+        print('correct = ', correct, '  wrong = ', wrong)
+    elif question.title() == state['capital']:
+        correct += 1
+        print('CORRECT!')
+        print('correct:', correct, '  wrong:', wrong)
+    
+if (wrong + correct == 50):
+    print('Thats all 50 states. Try again to improve your score.')
