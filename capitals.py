@@ -150,3 +150,19 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+from random import shuffle
+index = 0
+correct = 0
+incorrect = 0
+shuffle(states)
+
+for state in states:
+    index += 1
+    prompt = input("What's the capital of " + state['name'] )
+    if(prompt == state['capital']):
+        correct +=  1
+        print(f'Thats correct! correct: {correct} incorrect: {incorrect}  out of {index} states')
+    else:
+        incorrect +=  1
+        print(f'Thats incorrect! correct: {correct} incorrect: {incorrect} out of {index} states')
+
