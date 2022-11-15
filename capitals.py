@@ -150,3 +150,32 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+import random
+
+random.shuffle(states)
+
+score = {
+    "correct": 0,
+    "wrong": 0
+}
+
+def states_game():
+
+    print('Hello world! Welcome to the game of, "How well do you know America??"!!! Answer the following questions to see how patriotic you are!!! Remember! State capitals are proper nouns that should be capitalized!')
+    for i in range(0, 50):
+        print('What is the capital of', states[i]['name'], '?')
+        answer = input()
+        if answer == states[i]["capital"]:
+            score["correct"] += 1
+            print('Correct! Your score is:', score["correct"], "correct and ", score["wrong"], "wrong.")
+        else:
+            score["wrong"] += 1
+            print('wrongo. Your score is:', score["correct"], "correct and ", score["wrong"], "wrong.")
+    again= input('Thats all folks! Would you like to play again? y for yes or n for no  ')
+    if (again == 'y'):
+        states_game()
+    else:
+        print('Have a great day!')
+
+states_game()
