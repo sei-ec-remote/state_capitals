@@ -150,3 +150,77 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+# shuffle all 50 states
+import random
+#  VERSION 2 IN WORK--------------------------------------------------------------------------------------------------------------------------------------------
+# min = 0
+# max = 49
+# Tally Score and Welcome message:
+# scoreBoard = {
+#     "Answered Correct": 0,
+#     "Answered Incorrect": 0
+
+# class Capital:
+#     def __init__(self):
+#         self.state = states
+
+#     def capitalsGame(self,):
+#         print('Welcome to the State Capitals Python Game! We are going to play a guessing game to help us memorize the names of the capitals of all 50 states! \n Let us Start!'),
+#         for state in states:
+#             random.shuffle(states)
+#             question = input(f"what is the Capital of {self.state}?")
+#     def questions(self):
+#         if question == states['capital']:
+#             correct += 1
+#             print("You have earned a point!", scoreBoard)
+#         else:
+#             incorrect -= 1
+#             print('You earned a point! Jk u lost a point :( ....', scoreBoard)
+
+#         if correct == 50:
+#             print('Seems like you know your States well enough. Would you like to play again?')
+#             if play_again == 'y':
+#                 Capital()
+#             else:
+#                 print('Have a great day')
+# Capital().capitalsGame()
+#  VERSION 2 IN WORK--------------------------------------------------------------------------------------------------------------------------------------------
+
+# vr1
+setGame = True
+
+while setGame:
+    random.shuffle(states)
+    # Scoreboard
+    incorrect = 0
+    correct = 0
+    # print("tally board")
+
+    question = input("Would you like to play a hard python terminal game meant for only high IQ people? please answer with [y/n]")
+    if question == "n":
+        setGame = False
+        print("Idiot, I knew you would back out.")
+
+    if question == "y":
+        print("Welcome to the State Capitals Python Game! We are going to play a guessing game to test you 'high IQ' with the names of the capitals of all 50 states. \n Let's start shall we?")
+        
+        for state in (states[:50]):
+            question = input("What is the capital of " + state["name"]+ "? ")
+           
+            if question == state["capital"]:
+                correct = correct + 1
+                print("Hmmm that was lucky guess you got yourself a point. You have earned a point.")
+            
+            if question != state["capital"]:
+                incorrect = incorrect + 1 
+                print("Not a shocker you weren't going to get that point with that IQ. No points.")
+            # if question != state["capital"]:
+            #     correct != 50
+            #     print("Seems like you know your States well enough. Would you like to play again? [y/n]")
+        print("GAME OVER you have ", correct,  "correct and ",(incorrect), "incorrect" )
+        question = input("Do you want to play again? [y/n]")
+        if question == "y":
+            setGame = True
+        if question == "n":
+            print("Idiot, come back next time you are ready....")
+            setGame = False
