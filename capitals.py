@@ -158,7 +158,7 @@ shuffle(states)
 
 for state in states:
     index += 1
-    prompt = input("What's the capital of " + state['name'] )
+    prompt = input("What's the capital of " + state['name'] + " " )
     if(prompt == state['capital']):
         correct +=  1
         print(f'Thats correct! correct: {correct} incorrect: {incorrect}  out of {index} states')
