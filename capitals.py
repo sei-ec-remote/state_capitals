@@ -161,9 +161,9 @@ user = input("Wanna play StatR the hottest state capitol game? ")
 
 if user.casefold() == "yes" or user.casefold() == 'y':
     playing = True
-    print(playing, "huh?")
-    print("play")
+    print("Let's play!")
 elif user.casefold() != "yes" or user.casefold() != 'y':
+    print("Ok! Come play soon")
     playing = False
 
 
@@ -173,7 +173,7 @@ def game_loop():
         random.shuffle(states)
         counter = 0
         for state in states:
-            if counter < 5:
+            while counter < 50:
                 curr_state = states[counter]["name"]
                 question = input(
                     f"What is the capital of {curr_state}? ").lower()
@@ -185,18 +185,18 @@ def game_loop():
                     print("Incorrect! next question...")
                     counter += 1
                     state["incorrect"] += 1
-            elif counter >= 5:
-                print("greater than 5")
-                user = input("Wanna play again? ")
-                if user.casefold() == "yes" or user.casefold() == 'y':
-                    counter = 0
-                    playing = True
-                    random.shuffle(states)
-                    print("play")
-                elif user.casefold() != "yes" or user.casefold() != 'y':
-                    counter = 0
-                    playing = False
-                    break
+
+            user = input("That's all 50! Wanna play again? ")
+            if user.casefold() == "yes" or user.casefold() == 'y':
+                counter = 0
+                playing = True
+                random.shuffle(states)
+                print("OK, let's play again!")
+            elif user.casefold() != "yes" or user.casefold() != 'y':
+                print("OK! Come play again soon!")
+                counter = 0
+                playing = False
+                break
 
 
 if playing == True:
