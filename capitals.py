@@ -1,3 +1,5 @@
+import random
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,38 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+playing = True
+
+print("Welcome to Name That State Capital. I'll bet you're American and assumed we'd doing US states. Well guess again! We're doing the provinces of I'm just kidding here we go.")
+
+for state in states:
+    state['correct'] = 0
+    state['incorrect'] = 0
+
+while playing:
+    round_score = 0
+    random.shuffle(states)
+    for state in states:
+        guess = input(f"\nWhat is the capital of {state['name']}?\n").lower()
+        if guess == state['capital'].lower():
+            round_score += 1
+            if state['correct']:
+                state['correct'] += 1
+            else:
+                state['correct'] = 1
+            print(f"Correct! The capital of {state['name']} is indeed {state['capital']}")
+        else:
+            if state['incorrect']:
+                state['incorrect'] += 1
+            else:
+                state['incorrect'] = 1
+            print(f"YOU FOOL! The capital of {state['name']} is actually {state['capital']}")
+
+        print(f"# times you got this one: {state['correct']}\n# times you blundered this one: {state['incorrect']}")
+    print(f"Your score this round was {round_score}/50")
+    playing_toggle = input("Want to play again? (y / n): ").lower()
+    if playing_toggle == 'n' or playing_toggle == 'no':
+        playing = False
+
+print("Thanks for playing!")
