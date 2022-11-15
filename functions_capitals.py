@@ -46,30 +46,3 @@ while start:
     elif ask == 'no':
         start = False
     
-
-            
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ask = input('do you want to play state-capitals game?:').lower()
-# if ask == "yes" or "y":
-#     start = True
-# elif ask == 'no' or 'n':
-#     start = False
-# print(start)
