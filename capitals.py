@@ -161,20 +161,31 @@ while restart:
     print(welcome)
 
     question = input("Do you want to play a game? [y/n]")
-    if question == "y":
-        print("AWESOME, READY SET GO! Good Luck!")
-        for state in (states[:6]):
-            question = input('What is the capital of: ' + states[0]['name'])
-        if question != state["capital"]:
-            wrong = wrong + 1
-            print(" You have answered incorrectly.. do better!")
-        if question == state["capital"]:
-            correct = correct + 1
-            print("Correct genious")
 
     if question == "n":
         restart = False
         print("Fine. I didn't want to play with you anyways")
+
+    if question == "y":
+        print("AWESOME, READY SET GO! Good Luck!")
+        for state in (states[:6]):
+            print('What is the capital of: ' + state['name'])
+            question = input()
+            if question != state["capital"]:
+                incorrect = incorrect + 1
+                print(" You have answered incorrectly.. do better!")
+            if question == state["capital"]:
+                correct = correct + 1
+                print("Correct genious")
+
+        print("You have ended the game", correct, "correct", (incorrect), "incorrect")
+        question = input("Let's try again? [y/n]")
+        if question == "n":
+            print("Better luck next time!")
+            restart = False
+        if question == "y":
+            print("Let's do better this time!")
+            restart = True    
 
 
 play()
