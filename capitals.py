@@ -1,3 +1,4 @@
+import random
 states = [
 {
     "name": "Alabama",
@@ -150,3 +151,42 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+starting = True
+
+while starting:
+    random.shuffle(states)
+    score = 0
+    wrong = 0
+    print('Welcome to the game players. try your best to guess all the states in the US.')
+    start = input('Do you want to start the game?[y/n]').lower()
+    if starting == "n":
+        starting = False
+    
+
+
+    if starting == 'y':
+        print('Game is starting')
+
+
+
+    
+        
+    for state in states:
+        answer = input("What is the capital of " +  state["name"] + "?" )
+        if answer == state["capital"]:
+            score = score + 1
+            print('You are correct')
+        if answer != state["capital"]:
+            wrong = wrong + 1
+            print('You are wrong')
+print("Correct answers", score, "Incorrect answers", wrong)
+
+
+
+
+
+
+
+    
