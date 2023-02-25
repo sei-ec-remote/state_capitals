@@ -168,27 +168,34 @@ test_states = [
 
 import random
 
+for state in range(len(states)):
+        states[state]['correct'] = 0
+        states[state]['wrong'] = 0
+
 def game_loop():
     correct = 0
     wrong = 0
-    random.shuffle(test_states)
-
-    for state in test_states:
+    random.shuffle(states)
+    for state in states:
         print(f'What is the capital of: ', state['name'])
         answer = input('Please enter your answer: ')
         if answer.lower() == state['capital'].lower():
+            state['correct'] += 1
             correct += 1
-            print('Correct!  \n\nYour score: \nCorrect: ', correct, '\nIncorrect: ', wrong, '\n')
+            print('\nCorrect!  \n\n***Your score:*** \nThis state Correct:', state['correct'], '\nThis state Incorrect: ', state['wrong'],  '\n\nTotal correct: ', correct, '\nTotal incorrect: ', wrong, '\n')
         else:
+            state['wrong'] += 1
             wrong += 1
-            print('Incorrect!  The capital of ', state['name'], 'is', state['capital'], '\n\nYour score: \nCorrect: ', correct, '\nIncorrect: ', wrong, '\n')
+            print('\nIncorrect!  The capital of ', state['name'], 'is', state['capital'], '\n\n***Your score:*** \nThis state Correct:', state['correct'], '\nThis state Incorrect: ', state['wrong'], '\n\nTotal correct: ', correct, '\nTotal incorrect: ', wrong, '\n')
 
     print('Game over! Here is your final score: \nCorrect:', correct, '\nIncorrect: ', wrong)
     again = input('\nWould you like to play again? Enter Y or N ')
     if  again.lower() == 'y':
         game_loop()
-    else:
+    elif again.lower() == 'n':
         print('Thanks for playing!')
-        None 
+        None
+    else:
+        print('I did not understand that, I guess you do not want to play again')
 
 game_loop()
