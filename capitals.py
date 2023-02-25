@@ -10,16 +10,16 @@ states = [
     "capital": "Phoenix"
 }, {
     "name": "Arkansas",
-    "capital": "Little Rock"}]
-# }, {
-#     "name": "California",
-#     "capital": "Sacramento"
-# }, {
-#     "name": "Colorado",
-#     "capital": "Denver"
-# }, {
-#     "name": "Connecticut",
-#     "capital": "Hartford"
+    "capital": "Little Rock"
+}, {
+    "name": "California",
+    "capital": "Sacramento"
+}, {
+    "name": "Colorado",
+    "capital": "Denver"
+}, {
+    "name": "Connecticut",
+    "capital": "Hartford"}]
 # }, {
 #     "name": "Delaware",
 #     "capital": "Dover"
@@ -159,6 +159,8 @@ states = [
 #     "capital": "Montgomery"
 # },
 
+import random
+
 print("Welcome to the state capital game.")
 print("The object of the game is to guess the correct capital name for each state.")
 print("For each wrong answer, you will get one incorrect point. For each correct answer, you will get one correct point.")
@@ -166,5 +168,16 @@ print("For each wrong answer, you will get one incorrect point. For each correct
 correct = {}
 incorrect = {}
 
+state_choice = states[1]['name']
+choice = input(f"What is the capital of {state_choice} ? " )
+capital = states[1]['capital']
 
-choice = input("What is the capital of THIS STATE")
+if choice == states[1]['capital']:
+    print(f'Correct, the capital is {choice}')
+else:
+    print(f'Sorry, the capital of {state_choice} is {capital}')
+
+
+# print(f'You chose {choice}. The correct choice is {capital}')
+
+
