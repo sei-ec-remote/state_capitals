@@ -150,3 +150,45 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+test_states = [
+    {
+    "name": "Colorado",
+    "capital": "Denver"
+},
+{
+    "name": "Wyoming",
+    "capital": "Cheyenne"
+},
+{
+    "name": "New York",
+    "capital": "Albany"
+}
+]
+
+import random
+
+def game_loop():
+    correct = 0
+    wrong = 0
+    random.shuffle(test_states)
+
+    for state in test_states:
+        print(f'What is the capital of: ', state['name'])
+        answer = input('Please enter your answer: ')
+        if answer.lower() == state['capital'].lower():
+            correct += 1
+            print('Correct!  \n\nYour score: \nCorrect: ', correct, '\nIncorrect: ', wrong, '\n')
+        else:
+            wrong += 1
+            print('Incorrect!  The capital of ', state['name'], 'is', state['capital'], '\n\nYour score: \nCorrect: ', correct, '\nIncorrect: ', wrong, '\n')
+
+    print('Game over! Here is your final score: \nCorrect:', correct, '\nIncorrect: ', wrong)
+    again = input('\nWould you like to play again? Enter Y or N ')
+    if  again.lower() == 'y':
+        game_loop()
+    else:
+        print('Thanks for playing!')
+        None 
+
+game_loop()
