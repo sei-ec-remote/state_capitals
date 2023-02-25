@@ -150,3 +150,50 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+# print(states[0]["name"]) accesses state name
+# print(states[0]["capital"]) accesses state capital
+# print(states[0]) accesses full state dictionary
+
+# import random
+import random
+
+# provide a welcome message
+print("**************************************************\nLet's test your knowledge of all 50 state capitals \n**************************************************")
+
+# initializes new keys in the dictionaries that store the number of times a user gets a capital correct and the number of times they get it wrong
+for i in range(len(states)):
+        states[i]["correct"] = 0
+        states[i]["wrong"] = 0
+
+def game_loop():
+    # randomize order that states appear
+    random.shuffle(states)
+
+    for i in range(len(states)):
+        # through all 50 states prompt the user to name the capital of the state
+        answer = input("What is the capital of {}? \n".format(states[i]["name"])).lower()
+        # if the answer is correct, display a message saying so and increment the correct key
+        if answer == states[i]["capital"].lower():
+            states[i]["correct"] += 1
+            print("Correct!")
+        # if the answer is wrong, display a message saying so, and increment the wrong key
+        else:
+            states[i]["wrong"] += 1
+            print("Wrong!")
+            
+        # after each prompt, display a message telling the player how many times the state was answered correctly out of the total number of times answered
+        print("***You have guessed {0}'s capital correct {1} times and wrong {2} times***".format(states[i]["name"], states[i]["correct"], states[i]["wrong"]))
+
+    # ask user if they would like to play again
+    play_again = input("Would you like to play again? Y/N \n")
+    if play_again == "Y":
+        random.shuffle(states)
+        game_loop()
+    else:
+        print("******************************\nScore Totals: \n******************************")
+        for i in range(len(states)):
+            print("{0}: Correct: {1} Wrong: {2}".format(states[i]["name"], states[i]["correct"], states[i]["wrong"]))
+
+game_loop()
+
