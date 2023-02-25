@@ -165,17 +165,32 @@ print("Welcome to the state capital game.")
 print("The object of the game is to guess the correct capital name for each state.")
 print("For each wrong answer, you will get one incorrect point. For each correct answer, you will get one correct point.")
 
-correct = {}
-incorrect = {}
+correct = 0
+incorrect = 0
 
-state_choice = states[1]['name']
-choice = input(f"What is the capital of {state_choice} ? " )
-capital = states[1]['capital']
+for i in range(len(states)):
 
-if choice == states[1]['capital']:
-    print(f'Correct, the capital is {choice}')
-else:
-    print(f'Sorry, the capital of {state_choice} is {capital}')
+    state_choice = states[i]['name']
+    choice = input(f"What is the capital of {state_choice} ? " ).title()
+
+    print(f'You chose {choice}')
+
+    capital = states[i]['capital']
+    while True:
+        if choice == states[i]['capital']:
+            print(f'Correct, the capital is {choice}')
+            correct += 1
+            print(f'Your scores are {correct} correct and {incorrect} incorrect')
+            break
+        else:
+            print(f'Sorry, the capital of {state_choice} is not {choice}. ')
+            incorrect += 1
+            print(f'Your scores are {correct} correct and {incorrect} incorrect')
+            
+            print('Please try again.')
+            choice = input(f"What is the capital of {state_choice} ? " ).capitalize()
+
+            
 
 
 # print(f'You chose {choice}. The correct choice is {capital}')
