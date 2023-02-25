@@ -48,7 +48,6 @@ class StateCapitalsGame():
             else:
                 # Create a temporary response object
                 response = {}
-                print("capital", capital)
                 self.score_answer("loss")
                 response["state"] = state
                 # Create a hint based on the round & add to game record
