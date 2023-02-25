@@ -17,8 +17,7 @@ states = [
 }, {
     "name": "Colorado",
     "capital": "Denver"
-}]
-otherthing = [{
+},{
     "name": "Connecticut",
     "capital": "Hartford"
 }, {
