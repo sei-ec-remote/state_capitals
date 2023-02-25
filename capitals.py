@@ -178,11 +178,22 @@ def game_loop():
     random.shuffle(states)
     for state in states:
         print(f'What is the capital of: ', state['name'])
-        answer = input('Please enter your answer: ')
+        answer = input('Please enter your answer (type h for a hint): ')
         if answer.lower() == state['capital'].lower():
             state['correct'] += 1
             correct += 1
             print('\nCorrect!  \n\n***Your score:*** \nThis state Correct:', state['correct'], '\nThis state Incorrect: ', state['wrong'],  '\n\nTotal correct: ', correct, '\nTotal incorrect: ', wrong, '\n')
+        elif answer.lower() == 'h'.lower():
+            print(state['capital'][:3])
+            answer_with_hint = input('Enter your answer: ')
+            if answer_with_hint.lower() == state['capital'].lower():
+                state['correct'] += 1
+                correct += 1
+                print('\nCorrect!  \n\n***Your score:*** \nThis state Correct:', state['correct'], '\nThis state Incorrect: ', state['wrong'],  '\n\nTotal correct: ', correct, '\nTotal incorrect: ', wrong, '\n')
+            else:
+                state['wrong'] += 1
+                wrong += 1
+                print('\nIncorrect!  The capital of ', state['name'], 'is', state['capital'], '\n\n***Your score:*** \nThis state Correct:', state['correct'], '\nThis state Incorrect: ', state['wrong'], '\n\nTotal correct: ', correct, '\nTotal incorrect: ', wrong, '\n')
         else:
             state['wrong'] += 1
             wrong += 1
