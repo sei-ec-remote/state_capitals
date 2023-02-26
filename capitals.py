@@ -167,7 +167,7 @@ def quiz_loop():
         #randomize states first
         random.shuffle(states)
         #then loop through
-        for i in range(3):
+        for i in range(len(states)):
             question = input(f'What is the capital of {states[i]["name"]}? \n')
             if question == states[i]['capital']:
                 states[i]["correct_counter"] += 1
