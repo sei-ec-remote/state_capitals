@@ -150,3 +150,28 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+score = {
+    "correct" : 0,
+    "incorrect": 0
+}
+
+def game():
+    for i in range(len(states)):
+        answer = input(f"what is the capital of {states[i]['name']}? ")
+        if answer.capitalize() == states[i]['capital']:
+            score['correct'] += 1
+            print(f"Score: {score['correct']} out of 50")
+        else:
+            score['incorrect'] += 1
+            print(f"Score: {score['correct']} out of 50")
+    restart = input(f"Play again? (yes or no)")
+    if restart == "yes":
+        game()
+    else:
+        print(f"Correct: {score['correct']}")
+        print(f"Incorrect: {score['incorrect']}")
+        exit()
+
+game()
