@@ -1,3 +1,5 @@
+import random 
+
 states = [
 {
     "name": "Alabama",
@@ -150,3 +152,52 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+answered_correct = []
+answered_incorrect = []
+
+User = {}
+User["correct"] = 0
+User["incorrect"] = 0
+
+print("Welcome to the state capitals game.\n")
+User["name"] = input("Please enter your username.\n")
+print("\nWelcome, {}!\n".format(User["name"]))
+print("Let's begin.\n")
+
+random.shuffle(states)
+
+def game_over(User, states, answered_correct, answered_incorrect):
+    print("Game over. You had {} correct answers and {} incorrect answers.\n".format(User["correct"], User["incorrect"]))
+
+    play_again = input("Would you like to play again? Y/n \n")
+
+    if play_again == "Y":
+        states = answered_incorrect + answered_correct
+        answered_correct = []
+        answered_incorrect = []
+        game_loop(User, states, answered_correct, answered_incorrect)
+    else:
+        print("\nThank you for playing.")
+
+def game_loop(User, states, answered_correct, answered_incorrect):
+    for index in range(len(states)):
+        current = states[index]
+        answer = input("What is the capital of {}? \n".format(current["name"]))
+
+        if answer == current["capital"]:
+            User["correct"] += 1
+            print("\nCorrect! The capital of {} is {}. \n".format(current["name"], current["capital"]))
+            answered_correct.append(current)
+        elif answer != current["capital"]:
+            User["incorrect"] += 1
+            print("\nIncorrect. {} is not the capital of {}. \n".format(answer, current["name"]))
+            answered_incorrect.append(current)
+        
+        del current
+        
+        print("Score - Correct: {} Incorrect: {} \n".format(User["correct"], User["incorrect"]))
+    
+    game_over(User, states, answered_correct, answered_incorrect)
+
+game_loop(User, states, answered_correct, answered_incorrect)
