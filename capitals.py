@@ -1,7 +1,14 @@
+import json
+import random
+
+def myfunction():
+    return 0.1
+
 states = [
 {
     "name": "Alabama",
-    "capital": "Montgomery"
+    "capital": "Montgomery",
+    "played": 0
 }, {
     "name": "Alaska",
     "capital": "Juneau"
@@ -149,4 +156,64 @@ states = [
 }, {
     "name": "Wyoming",
     "capital": "Cheyenne"
-}]
+}
+]
+
+
+# =================== GAME =======================
+
+
+
+welcome = input("Welcome to the State's Capital Game\n In this game you'll be asked to provide the name of capitals of the states\nDo you wish to play this game Yes or No: ")
+
+# Initializing new keys (Only once so used a seperate function)
+def new_keys():
+    for state in states:
+        state["correct"] = 0
+        state["incorrect"] = 0
+        state["played"] = 0
+
+# Game function
+def game():
+    random.shuffle(states, myfunction)
+    if (welcome.lower() == "Yes".lower()):
+        for i, state in enumerate(states):
+            
+            # ------ name the state ------
+            prompt= input(f"What is the capital of {state['name']} ? ")
+            if (prompt.lower() == state["capital"].lower()):
+                print('Correct Answer')
+                states[i]["correct"] += 1  # update correct count in states dictionary
+                states[i]["played"] += 1 
+                
+                print(f"( {states[i]['correct']} / {states[i]['played']} ) times the correct answer was given")
+
+            elif state["incorrect"] <= 0:
+                print('Incorrect Answer')
+                states[i]["played"] += 1 
+                
+                print(f"( {states[i]['correct']} / {states[i]['played']} ) times the correct answer was given")
+                
+            else:
+                states[i]["incorrect"] = states[i]["incorrect"] - 1
+                states[i]["played"] += 1 
+                print(state["played"])
+                print(f"( {states[i]['correct']} / {states[i]['played']} ) times the correct answer was given")
+    else:
+        exit()
+# Play the game for first time
+new_keys()
+game()
+
+# After the game end's msg
+end_game = input("Would you like to continue playing the game?\n Yes or No: ")
+print(end_game)
+if (end_game.lower() == "Yes".lower()):
+    game()
+else:
+    exit()
+
+
+
+
+
