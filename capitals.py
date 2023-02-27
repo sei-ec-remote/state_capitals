@@ -150,3 +150,30 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+import random
+
+random.shuffle(states)
+
+score = 0
+total_questions = 0
+
+while True:
+    print("Welcome to capital guesser")
+    for state in states:
+        capital = state["capital"]
+        state_name = state["name"]
+        print(" You have " + str(score) + " out of " + str(total_questions) + " correct.")
+        answer = input(f"What is the capital of {state_name} ? ")
+        total_questions += 1
+        if answer == capital:
+            print("Correct")
+            score += 1
+        else:
+            print(f"Incorrect. The capital of {state_name} is {capital}.")
+    done = input("Would you like to go again? (yes/no) ")
+    if done == "no":
+        print("Thank you for playing capital guesser!")
+        break
+
+print("Game over! You got " + str(score) + " out of " + str(total_questions) + " correct.")
