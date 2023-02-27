@@ -150,3 +150,32 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+points = {
+    "correct" : 0,
+    "incorrect": 0
+}
+# correct_list = ["Nice Job!", "Correct!", "BOOM! You got it!"]
+
+
+def game():
+    for i in range(len(states)):
+        answer = input(f"what is the capital of {states[i]['name']}? ")
+        if answer.capitalize() == states[i]['capital']:
+            points['correct'] += 1
+            # print((correct_list[i]))
+            print("Nice Job!!")
+            print(f"Points: {points['correct']} out of 50")
+        else:
+            points['incorrect'] += 1
+            print("Incorrect! Answer is:", states[i]['capital'])
+            print(f"Points: {points['correct']} out of 50")
+    restart = input(f"Play again? (yes or no)")
+    if restart == "yes":
+        game()
+    else:
+        print(f"Correct: {points['correct']}")
+        print(f"Incorrect: {points['incorrect']}")
+        exit()
+
+game()
