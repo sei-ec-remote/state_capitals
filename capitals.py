@@ -1,3 +1,4 @@
+import random
 states = [
 {
     "name": "Alabama",
@@ -150,3 +151,32 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+random.shuffle(states)
+
+score = {
+    'correct' : 0,
+    'incorrect' : 0
+}
+print("Welcome, learn the state capitals!")
+def game():
+
+    for i in range(len(states)):
+        answer = input(f"What is the capital of {states[i]['name']}?")
+        if answer == states[i]['capital']:
+            score['correct'] += 1
+            print(f"Correct! \n Score: {score['correct']}")
+        else:
+            score['incorrect'] += 1
+            print(f"Incorrect.. \n Score: {score['correct']} ")
+
+    restart = input("Restart Game? (y or n)")
+    if restart == 'y':
+        game()
+    else:
+        print("Thanks for playing!")
+        print(f"(Correct: {score['correct']}")
+        print(f"Incorrect: {score['incorrect']}")
+        exit()
+
+game()
