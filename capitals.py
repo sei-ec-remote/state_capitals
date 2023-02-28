@@ -1,152 +1,203 @@
+import random
+
 states = [
 {
-    "name": "Alabama",
+    "state": "Alabama",
     "capital": "Montgomery"
 }, {
-    "name": "Alaska",
+    "state": "Alaska",
     "capital": "Juneau"
 }, {
-    "name": "Arizona",
+    "state": "Arizona",
     "capital": "Phoenix"
 }, {
-    "name": "Arkansas",
+    "state": "Arkansas",
     "capital": "Little Rock"
 }, {
-    "name": "California",
+    "state": "California",
     "capital": "Sacramento"
 }, {
-    "name": "Colorado",
+    "state": "Colorado",
     "capital": "Denver"
 }, {
-    "name": "Connecticut",
+    "state": "Connecticut",
     "capital": "Hartford"
 }, {
-    "name": "Delaware",
+    "state": "Delaware",
     "capital": "Dover"
 }, {
-    "name": "Florida",
+    "state": "Florida",
     "capital": "Tallahassee"
 }, {
-    "name": "Georgia",
+    "state": "Georgia",
     "capital": "Atlanta"
 }, {
-    "name": "Hawaii",
+    "state": "Hawaii",
     "capital": "Honolulu"
 }, {
-    "name": "Idaho",
+    "state": "Idaho",
     "capital": "Boise"
 }, {
-    "name": "Illinois",
+    "state": "Illinois",
     "capital": "Springfield"
 }, {
-    "name": "Indiana",
+    "state": "Indiana",
     "capital": "Indianapolis"
 }, {
-    "name": "Iowa",
+    "state": "Iowa",
     "capital": "Des Moines"
 }, {
-    "name": "Kansas",
+    "state": "Kansas",
     "capital": "Topeka"
 }, {
-    "name": "Kentucky",
+    "state": "Kentucky",
     "capital": "Frankfort"
 }, {
-    "name": "Louisiana",
+    "state": "Louisiana",
     "capital": "Baton Rouge"
 }, {
-    "name": "Maine",
+    "state": "Maine",
     "capital": "Augusta"
 }, {
-    "name": "Maryland",
+    "state": "Maryland",
     "capital": "Annapolis"
 }, {
-    "name": "Massachusetts",
+    "state": "Massachusetts",
     "capital": "Boston"
 }, {
-    "name": "Michigan",
+    "state": "Michigan",
     "capital": "Lansing"
 }, {
-    "name": "Minnesota",
+    "state": "Minnesota",
     "capital": "St. Paul"
 }, {
-    "name": "Mississippi",
+    "state": "Mississippi",
     "capital": "Jackson"
 }, {
-    "name": "Missouri",
+    "state": "Missouri",
     "capital": "Jefferson City"
 }, {
-    "name": "Montana",
+    "state": "Montana",
     "capital": "Helena"
 }, {
-    "name": "Nebraska",
+    "state": "Nebraska",
     "capital": "Lincoln"
 }, {
-    "name": "Nevada",
+    "state": "Nevada",
     "capital": "Carson City"
 }, {
-    "name": "New Hampshire",
+    "state": "New Hampshire",
     "capital": "Concord"
 }, {
-    "name": "New Jersey",
+    "state": "New Jersey",
     "capital": "Trenton"
 }, {
-    "name": "New Mexico",
+    "state": "New Mexico",
     "capital": "Santa Fe"
 }, {
-    "name": "New York",
+    "state": "New York",
     "capital": "Albany"
 }, {
-    "name": "North Carolina",
+    "state": "North Carolina",
     "capital": "Raleigh"
 }, {
-    "name": "North Dakota",
+    "state": "North Dakota",
     "capital": "Bismarck"
 }, {
-    "name": "Ohio",
+    "state": "Ohio",
     "capital": "Columbus"
 }, {
-    "name": "Oklahoma",
+    "state": "Oklahoma",
     "capital": "Oklahoma City"
 }, {
-    "name": "Oregon",
+    "state": "Oregon",
     "capital": "Salem"
 }, {
-    "name": "Pennsylvania",
+    "state": "Pennsylvania",
     "capital": "Harrisburg"
 }, {
-    "name": "Rhode Island",
+    "state": "Rhode Island",
     "capital": "Providence"
 }, {
-    "name": "South Carolina",
+    "state": "South Carolina",
     "capital": "Columbia"
 }, {
-    "name": "South Dakota",
+    "state": "South Dakota",
     "capital": "Pierre"
 }, {
-    "name": "Tennessee",
+    "state": "Tennessee",
     "capital": "Nashville"
 }, {
-    "name": "Texas",
+    "state": "Texas",
     "capital": "Austin"
 }, {
-    "name": "Utah",
+    "state": "Utah",
     "capital": "Salt Lake City"
 }, {
-    "name": "Vermont",
+    "state": "Vermont",
     "capital": "Montpelier"
 }, {
-    "name": "Virginia",
+    "state": "Virginia",
     "capital": "Richmond"
 }, {
-    "name": "Washington",
+    "state": "Washington",
     "capital": "Olympia"
 }, {
-    "name": "West Virginia",
+    "state": "West Virginia",
     "capital": "Charleston"
 }, {
-    "name": "Wisconsin",
+    "state": "Wisconsin",
     "capital": "Madison"
 }, {
-    "name": "Wyoming",
+    "state": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+def shuffle_states(states):
+    random.shuffle(states)
+    return states
+
+# Define a function to play the game
+def play_game(states):
+    # The counters for correct and wrong answers
+    correct = 0
+    wrong = 0
+    
+    # Loop through each state
+    for state in states:
+        # Prompt the user for the capital of the state
+        capital = input(f"What is the capital of {state['state']}? ")
+        
+        # Check if answer is correct
+        if capital == state['capital']:
+            print("Correct!")
+            state['correct'] = state.get('correct', 0) + 1
+            correct += 1
+        else:
+            print(f"Wrong! The capital of {state['state']} is {state['capital']}.")
+            state['wrong'] = state.get('wrong', 0) + 1
+            wrong += 1
+        
+        # Display the number of correct and wrong answers for the state
+        total = state.get('correct', 0) + state.get('wrong', 0)
+        print(f"You have answered {state['state']} correctly {state.get('correct', 0)} out of {total} times.")
+    
+    # Display the overall score
+    print(f"\nYou answered {correct} out of {correct + wrong} states correctly.")
+    
+    # Ask the user if they want to play again
+    play_again = input("Do you want to play again? (y/n) ")
+    if play_again == "y":
+     
+        states = shuffle_states(states)
+       
+        play_game(states)
+
+
+states = shuffle_states(states)
+
+print("Welcome to the State Capitals Quiz!")
+
+
+play_game(states)
