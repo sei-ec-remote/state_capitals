@@ -150,3 +150,34 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+import random
+
+
+
+def game():
+    random.shuffle(states)
+    score = {
+        "correct" : 0,
+        "wrong": 0
+    }
+    for i in range(len(states)):
+        answer = input(f"what is the capital of {states[i]['name']}? ")
+        if answer == states[i]['capital']:
+            score['correct'] += 1
+            print(f"Correct: {score['correct']} out of {i+1}")
+            print(f"Wrong: {score['wrong']} out of {i+1}")
+        else:
+            score['wrong'] += 1
+            print(f"The correct answer is: {states[i]['capital']}")
+            print(f"Correct: {score['correct']} out of {i+1}")
+            print(f"wrong: {score['wrong']} out of {i+1}")
+    restart = input(f"Play again? (yes or no)")
+    if restart == "yes":
+        game()
+    else:
+        print(f"Correct: {score['correct']}")
+        print(f"wrong: {score['wrong']}")
+        exit()
+
+game()
