@@ -150,3 +150,49 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+import random
+# *Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+totals = {
+    "correct": 0,
+    "wrong": 0
+}
+# *Provide a welcome message to introduce the player to the game.
+print("I hope you've been brushing up on your geography, because this game is gonna test you... \n\nWelcome to everyone's favorite STATE CAPITAL QUIZ GAME!")
+
+# *Initialize new keys in the dictionaries that store the number of times a user gets a capital correct and the number of times the answer is wrong.
+for state in states:
+    state["correct"] = 0
+    state["wrong"] = 0
+
+
+def capital_game():
+    # *Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+    random.shuffle(states)
+    game_correct=0
+    game_wrong=0
+    for state in states:
+        # *Through all 50 states, prompt the user to name the capital of the state.
+        answer = input(f"What is the capital of {state['name']}?\n\n")
+        # *If the answer is correct, display a message saying so, and increment the correct key.
+        if answer.lower() == state['capital'].lower():
+            state['correct']+=1
+            totals['correct']+=1
+            game_correct+=1
+            print(f"\nDING DING DING! That is correct!\n")
+        # *If the answer is wrong, display a message saying so, and increment the wrong key.
+        else:
+            state['wrong']+=1
+            totals['wrong']+=1
+            game_wrong+=1
+            print(f"BZZZZZZT! That is incorrect. The correct answer was {state['capital']}.")
+        # *After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
+        print(f"You have correctly identified {state['name']}'s capital {state['correct']} times! You have misidentified it {state['wrong']} times.\n This round you have answered {game_correct} capitals correctly, and {game_wrong} capitals incorrectly\n")
+    # *Once the user has gone through all 50 states, ask them if they'd like to play again.
+    play_again = input(f"\nWhew! That's all of them! You answered {game_correct} capitals correctly, and {game_wrong} capitals incorrectly.\n Play again (y/n)?")
+    if play_again.lower == 'y':
+        print('Get Ready! HERE WE GO!')
+        capital_game()
+    else:
+        print(f"Thanks for playing!\n\n Total Scores:\ncorrect: {totals['correct']}\nincorrect: {totals['wrong']}")
+capital_game()
